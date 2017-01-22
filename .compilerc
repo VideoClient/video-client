@@ -1,0 +1,31 @@
+{
+  "env": {
+    "development": {
+      "application/javascript": {
+        "presets": ["es2016-node5", "react"],
+        "sourceMaps": "inline"
+      },
+      "text/typescript": {
+        "module": "commonjs",
+        "target": "es6",
+        "sourceMap": false,
+        "jsx": "react"
+      },
+      "text/less": {
+        "dumpLineNumbers": "comments"
+      }
+    },
+    "production": {
+      "application/javascript": {
+        "presets": ["es2016-node5", "react"],
+        "sourceMaps": "none"
+      },
+      "text/typescript": {
+        "module": "commonjs",
+        "target": "es6",
+        "sourceMap": false,
+        "jsx": "react"
+      }
+    }
+  }
+}

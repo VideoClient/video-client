@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "outDir": "built/",
+        "jsx": "react",
+        "noImplicitAny": false,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "declaration": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    },
+    "exclude": [
+        "node_modules",
+        "app"
+    ],
+    "filesGlob": [
+        "typings/*.d.ts",
+        "*.ts",
+        "*.tsx"
+    ],
+    "compileOnSave": true
+}

@@ -1,0 +1,11 @@
+{
+  "globalDependencies": {
+    "material-ui": "registry:dt/material-ui#0.15.1+20160919210656",
+    "node": "registry:dt/node#6.0.0+20160925070332",
+    "react": "registry:dt/react#0.14.0+20160923124221",
+    "react-dom": "registry:dt/react-dom#0.14.0+20160412154040",
+    "react-redux": "registry:dt/react-redux#4.4.0+20160908183346",
+    "react-router": "registry:dt/react-router#2.0.0+20160920184447",
+    "redux-form": "registry:dt/redux-form#4.0.3+20160907012813"
+  }
+}
