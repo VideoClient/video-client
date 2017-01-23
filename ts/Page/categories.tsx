@@ -33,6 +33,27 @@ export class Categories extends React.Component<any, any> {
                     </CardText>
                 </Card> 
             </div>
+
+            <div className='content-card'>
+                <Card>
+                    <CardHeader
+                        title="电影精选"
+                        actAsExpander={true}
+                        showExpandableButton={true}/>
+                    <CardText>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+                        Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+                        Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                    </CardText>
+                    <CardText expandable={true}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+                        Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+                        Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                    </CardText>
+                </Card> 
+            </div>
         </ScrollView>
     }
 }

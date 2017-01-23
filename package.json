@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "install": "typings install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -18,7 +19,8 @@
     "electron-packager": "^8.5.0",
     "electron-prebuilt-compile": "^1.4.15",
     "electron-react-devtools": "^0.4.0",
-    "typings": "^1.5.0"
+    "typescript": "^2.1.5",
+    "typings": "^2.1.0"
   },
   "dependencies": {
     "material-ui": "^0.16.7",
