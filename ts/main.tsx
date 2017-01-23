@@ -7,7 +7,11 @@ const Route = ReactRouter.Route
 const Router = ReactRouter.Router
 
 const route = <Route path="/" component={Framework}>
-                <Route path="categories" component={HomePage}/>
+                <Route path="home" component={HomePage}/>
+                <Route path="favorite" component={HomePage}/>
+                <Route path="history" component={HomePage}/>
+                <Route path="download" component={HomePage}/>
+                <Route path="settings" component={HomePage}/>
               </Route>
 
 Main.bootstrap(route, "app", true, redux_provider_gen({}, React, Router))
