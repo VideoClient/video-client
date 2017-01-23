@@ -14,6 +14,8 @@ export const ReactLayout = _ReactLayout
 const { Router, Route, hashHistory } = ReactRouter
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
+var injectTapEventPlugin = require("react-tap-event-plugin");
+injectTapEventPlugin();
 
 export class Main {
     static bootstrap(router: JSX.Element, id: string, use_redux: boolean = false, 
