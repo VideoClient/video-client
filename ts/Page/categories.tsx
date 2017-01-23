@@ -2,17 +2,64 @@ import { React, MaterialUI, ReactLayout } from '../StdLib/solo-ui'
 const {FlatButton, Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} = MaterialUI
 const {Box, VBox, Page, Container, ScrollView} = ReactLayout
 
+
 export class Category extends React.Component<any, any> {
-    render() {
-        return <div>
-            
-        </div>
+    // 传入一个名字作为参数
+    constructor(props) {
+        super(props)
+        if (Category.path_map[this.props.kind]==null) 
+            throw "类别名字错误（无此类）: " + this.props.kind
     }
+
+    render() {
+        return <VBox className='category-box' center style={{marginLeft: 20, marginRight: 20}}>
+            <img src={Category.path_map[this.props.kind]} alt={this.props.kind}/>
+            <h4>{this.props.kind}</h4>
+        </VBox>
+    }
+
+    public static path_map = {
+        '电影': 'img/film.png',
+        '连续剧': 'img/series.svg',
+        '科技': 'img/science.png',
+        '纪录片': 'img/book.svg',
+        '教育': 'img/education.png',
+        '娱乐': 'img/game.png',
+        '动漫': 'img/animate.png'
+    }
+    public static main_categories = ['电影', '连续剧', '动漫', '纪录片']
 }
 
 export class Categories extends React.Component<any, any> {
+    
     render() {
-        return <ScrollView>
+
+        let main_cates = []
+        for(var name of Category.main_categories) {
+            main_cates.push(<Category key={name} kind={name}/>)
+        }
+        let extend_cates = []
+        for(var name in Category.path_map) {
+            if (!Category.main_categories.includes(name))
+                extend_cates.push(<Category key={name} kind={name}/>)
+        }
+
+        let others = []
+        for (var i = 0; i < 10; i++) {
+            others.push(<div key={"other"+i} className='content-card'>
+                <Card>
+                    <CardHeader title="电影精选"/>
+                    <CardText >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+                        Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+                        Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                    </CardText>
+                </Card> 
+            </div>)
+        }
+
+        return <ScrollView fit>
             <div className='content-card'>
                 <Card>
                     <CardHeader
@@ -20,12 +67,22 @@ export class Categories extends React.Component<any, any> {
                         actAsExpander={true}
                         showExpandableButton={true}/>
                     <CardText>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                        Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                        Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                        <Container wrap>
+                            {main_cates}
+                        </Container>
                     </CardText>
                     <CardText expandable={true}>
+                        <Container>
+                            {extend_cates}
+                        </Container>
+                    </CardText>
+                </Card> 
+            </div>
+
+            <div className='content-card'>
+                <Card>
+                    <CardHeader title="电影精选"/>
+                    <CardText >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
                         Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
@@ -34,26 +91,8 @@ export class Categories extends React.Component<any, any> {
                 </Card> 
             </div>
 
-            <div className='content-card'>
-                <Card>
-                    <CardHeader
-                        title="电影精选"
-                        actAsExpander={true}
-                        showExpandableButton={true}/>
-                    <CardText>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                        Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                        Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-                    </CardText>
-                    <CardText expandable={true}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                        Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                        Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-                    </CardText>
-                </Card> 
-            </div>
+            {others}
+            
         </ScrollView>
     }
 }
