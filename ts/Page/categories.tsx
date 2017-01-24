@@ -12,20 +12,21 @@ export class Category extends React.Component<any, any> {
     }
 
     render() {
-        return <VBox className='category-box' center style={{marginLeft: 20, marginRight: 20}}>
-            <img src={Category.path_map[this.props.kind]} alt={this.props.kind}/>
+        let arr = Category.path_map[this.props.kind]
+        return <a className='category-box' href={arr[1]}>
+            <img src={arr[0]} alt={this.props.kind}/>
             <h4>{this.props.kind}</h4>
-        </VBox>
+        </a>
     }
 
     public static path_map = {
-        '电影': 'img/film.png',
-        '连续剧': 'img/series.svg',
-        '科技': 'img/science.png',
-        '纪录片': 'img/book.svg',
-        '教育': 'img/education.png',
-        '娱乐': 'img/game.png',
-        '动漫': 'img/animate.png'
+        '电影': ['img/film.png', '#/home/movie'],
+        '连续剧': ['img/series.svg', '#/home/series'],
+        '科技': ['img/science.png', '#/home/'],
+        '纪录片': ['img/book.svg', '#/home/'],
+        '教育': ['img/education.png', '#/home/'],
+        '娱乐': ['img/game.png', '#/home/'],
+        '动漫': ['img/animate.png', '#/home/animate'],
     }
     public static main_categories = ['电影', '连续剧', '动漫', '纪录片']
 }
@@ -92,7 +93,7 @@ export class Categories extends React.Component<any, any> {
             </div>
 
             {others}
-            
+
         </ScrollView>
     }
 }

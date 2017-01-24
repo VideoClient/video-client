@@ -26,7 +26,7 @@ app.on('ready', openMainWindow);
 function openMainWindow() {
     mainWindow = new BrowserWindow({ width: 1024, height: 768 });
     mainWindow.maximize();
-    mainWindow.loadURL('file://' + __dirname + '/index.html#/home');
+    mainWindow.loadURL('file://' + __dirname + '/index.html#/');
     mainWindow.openDevTools();
     mainWindow.on('closed', function () {
         mainWindow = null;

@@ -3,11 +3,13 @@ import {redux_provider_gen} from "./StdLib/solo-redux"
 import {HomePage,FavoritePage,HistoryPage,DownloadPage,SettingsPage} from "./Page/"
 import {Framework} from "./Component/framework"
 
-const Route = ReactRouter.Route
-const Router = ReactRouter.Router
+const {Route,Router,IndexRedirect} = ReactRouter
 
 const route = <Route path="/" component={Framework}>
-                <Route path="home" component={HomePage}/>
+                <IndexRedirect to="/home" />
+                <Route path="home" component={HomePage}>
+                  <Route path="/home/:tab" component={HomePage}/>
+                </Route>
                 <Route path="favorite" component={FavoritePage}/>
                 <Route path="history" component={HistoryPage}/>
                 <Route path="download" component={DownloadPage}/>

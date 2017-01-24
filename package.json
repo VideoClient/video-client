@@ -6,6 +6,7 @@
   "scripts": {
     "start": "electron .",
     "install": "typings install",
+    "pack": "electron-packager-compile . video-client --all --electron-version=1.4.15 --asar --overwrite --out=build --ignore=build --ignore=.vscode --ignore=typings --ignore=.git ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -26,6 +27,7 @@
     "material-ui": "^0.16.7",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "react-html5video": "^1.4.0",
     "react-layout-components": "^3.0.1",
     "react-materialui-notifications": "^0.4.1",
     "react-redux": "^4.4.5",
