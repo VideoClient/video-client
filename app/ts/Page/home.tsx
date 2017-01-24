@@ -4,11 +4,17 @@ import {Categories, Discovery} from '.'
 const {Box, VBox, Page, Container} = ReactLayout
 import SwipeableViews from 'react-swipeable-views'
 
+import {YoukuAdapter} from '../Model/Adapter/youku'
+
+
 export class HomePage extends React.Component<any, any> {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this)
         this.state = { slideIndex: 0, slideName: "categories" }
+
+        var youku = new YoukuAdapter()
+        youku.search('琅琊榜', 1)
     }
 
     componentWillReceiveProps(nextProps) {

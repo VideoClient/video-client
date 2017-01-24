@@ -1,5 +1,3 @@
 export interface IResAdapter {
-    search(name: string)
-    discover()
-
+    search(name: string, page: number)
 }
