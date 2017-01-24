@@ -2,12 +2,13 @@
   "name": "video-client",
   "version": "0.1.0",
   "description": "一款PC端视频聚合应用，提供国内主流视频站资源。",
-  "main": "main.js",
+  "main": "app/main.js",
   "scripts": {
-    "start": "electron .",
+    "start": "electron-forge start",
     "install": "typings install",
-    "pack": "electron-packager-compile . video-client --all --electron-version=1.4.15 --asar --overwrite --out=build --ignore=build --ignore=.vscode --ignore=typings --ignore=.git ",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "keywords": [
     "video",
@@ -17,8 +18,8 @@
   "license": "MIT",
   "devDependencies": {
     "devtron": "^1.3.0",
-    "electron-packager": "^8.5.0",
-    "electron-prebuilt-compile": "^1.4.15",
+    "electron-forge": "^2.7.2",
+    "electron-prebuilt-compile": "1.4.15",
     "electron-react-devtools": "^0.4.0",
     "typescript": "^2.1.5",
     "typings": "^2.1.0"
@@ -37,6 +38,35 @@
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",
     "redux-form": "^6.0.5",
-    "redux-form-material-ui": "^4.0.1"
+    "redux-form-material-ui": "^4.0.1",
+	"electron-compile": "^5.1.3"
+  },
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {},
+      "electronWinstallerConfig": {
+        "name": ""
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": ""
+      },
+      "windowsStoreConfig": {
+        "packageName": ""
+      }
+    }
   }
 }
