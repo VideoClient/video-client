@@ -4,7 +4,7 @@ import {Categories, Discovery} from '.'
 const {Box, VBox, Page, Container} = ReactLayout
 
 
-export class FavoritePage extends React.Component<any, any> {
+export class SearchPage extends React.Component<any, any> {
     constructor(props) {
         super(props);
     }
@@ -13,7 +13,7 @@ export class FavoritePage extends React.Component<any, any> {
         return <div style={{width: '100%'}}>
             <div className='content-card'>
                 <Card>
-                    <CardHeader title="收藏的视频"/>
+                    <CardHeader title="搜索结果"/>
                     <CardText>
                         
                     </CardText>

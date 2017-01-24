@@ -9,6 +9,7 @@ export class Video {
     name: string
     url: string
     time: string
+    img: string
     last_watch: string
 }
 
