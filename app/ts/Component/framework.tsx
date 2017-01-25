@@ -30,7 +30,6 @@ export class Framework extends React.Component<any, any> {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps)
         if (this.state.icon === this.menu_icon && nextProps.routes.length>1 && nextProps.routes[1].path != 'home')
             this.setState({icon: this.arrow_icon})
         if (this.state.icon === this.arrow_icon && nextProps.routes.length>1 && nextProps.routes[1].path == 'home')

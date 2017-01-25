@@ -7,5 +7,8 @@
     "react-redux": "registry:dt/react-redux#4.4.0+20160908183346",
     "react-router": "registry:dt/react-router#2.0.0+20160920184447",
     "redux-form": "registry:dt/redux-form#4.0.3+20160907012813"
+  },
+  "dependencies": {
+    "nedb": "registry:dt/nedb#0.0.0+20160726220304"
   }
 }
