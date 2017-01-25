@@ -29,3 +29,7 @@ export class YoukuAdapter implements IResAdapter {
     }
 
 }
+
+export interface YoukuVideo {
+    
+}

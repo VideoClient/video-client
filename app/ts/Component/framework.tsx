@@ -12,7 +12,10 @@ export class Framework extends React.Component<any, any> {
         this.state = {open: false, icon: this.menu_icon};
     }
     onMenuBtnClick() {
-        this.setState({open: true})
+        if (this.state.icon == this.arrow_icon)
+            this.props.history.goBack()
+        else
+            this.setState({open: true})
     }
     onMenuBackClick() {
         this.setState({open: !this.state.open})
@@ -21,17 +24,19 @@ export class Framework extends React.Component<any, any> {
         if (event.keyCode == 13) {
             let video_name = event.target.value
             this.youku.search(video_name, 1).then(video => {
-
+                
             }).catch(reason => console.log(reason))
         }
     }
 
     componentWillReceiveProps(nextProps) {
-         if (this.state.icon == this.menu_icon && nextProps.routes!=null && nextProps.routes[1] != 'home')
-             this.setState({icon: this.arrow_icon})
-         if (this.state.icon == this.arrow_icon && nextProps.routes!=null && nextProps.routes[1] == 'home')
-             this.setState({icon: this.menu_icon})
+        console.log(nextProps)
+        if (this.state.icon === this.menu_icon && nextProps.routes.length>1 && nextProps.routes[1].path != 'home')
+            this.setState({icon: this.arrow_icon})
+        if (this.state.icon === this.arrow_icon && nextProps.routes.length>1 && nextProps.routes[1].path == 'home')
+            this.setState({icon: this.menu_icon})
     }
+
     arrow_icon= <IconButton><NavigationArrowBack /></IconButton>
     menu_icon= <IconButton><NavigationMenu /></IconButton>
     youku = new YoukuAdapter()
