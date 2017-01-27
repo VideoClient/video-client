@@ -42,19 +42,23 @@ export class HomePage extends React.Component<any, any> {
     ]
 
     render() {
-        return <div style={{width: '100%'}}>
-            <Tabs ref='tabs' style={{width: '100%'}} onChange={this.handleChange} value={this.state.slideIndex}>
-                {HomePage.tabs}
-            </Tabs>
-            <SwipeableViews index={this.state.slideIndex} onChangeIndex={this.handleChange}>  
-                <Categories/>
-                <Discovery/>
-                <Discovery/>
-                <Discovery/>
-                <Discovery/>
-                <Discovery/>
-                <Discovery/>
-            </SwipeableViews>
-        </div>
+        return <Container><VBox>
+            <Box flex='none'>
+                <Tabs ref='tabs' style={{width: '100%'}} onChange={this.handleChange} value={this.state.slideIndex}>
+                    {HomePage.tabs}
+                </Tabs>
+            </Box>
+            <Box flex='1'>
+                <SwipeableViews style={{width: '100%', height: '100%'}} index={this.state.slideIndex} onChangeIndex={this.handleChange}>  
+                    <Categories/>
+                    <Discovery/>
+                    <Discovery/>
+                    <Discovery/>
+                    <Discovery/>
+                    <Discovery/>
+                    <Discovery/>
+                </SwipeableViews>
+            </Box>
+        </VBox></Container>
     }
 }

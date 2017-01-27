@@ -5,16 +5,18 @@ import { NavigationFullscreen, ImagePhotoCamera, NavigationFullscreenExit, Image
 const {Box, VBox, Page, Container} = ReactLayout
 import {Video} from '../Model/resource'
 
-export class ShowBox extends React.Component<any, any> {
+export interface VideoBoxProps {
+    video: Video
+}
+
+export class VideoBox extends React.Component<VideoBoxProps, any> {
     constructor(props) {
         super(props)
-        this.video = props.video
     }
-    private video: Video
     render() {
         return <a className='category-box'>
-            <img src={this.video.thumbnail} alt={this.video.name}/>
-            <h4>{this.video.name}</h4>
+            <img src={this.props.video.thumbnail} alt={this.props.video.name}/>
+            <h4>{this.props.video.name}</h4>
         </a>
     }
 }

@@ -51,9 +51,15 @@ export class Framework extends React.Component<any, any> {
                 <User/>
                 <LeftMenu open={this.state.open} width={Framework.drawer_width} onBack={this.onMenuBackClick.bind(this)}/>
             </Drawer>
-            <AppBar title='主页' iconElementLeft={this.state.icon} onLeftIconButtonTouchTap={this.onMenuBtnClick.bind(this)} iconElementRight={this.search_box} />
-            <Container>
-                {this.props.children}
+            <Container fit>
+                <VBox fit>
+                    <Box flex='none'>
+                        <AppBar title='主页' iconElementLeft={this.state.icon} onLeftIconButtonTouchTap={this.onMenuBtnClick.bind(this)} iconElementRight={this.search_box} />
+                    </Box>
+                    <Box flex='1'>
+                        {this.props.children}
+                    </Box>
+                </VBox>
             </Container>
         </Page>
     }

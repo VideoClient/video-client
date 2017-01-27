@@ -1,3 +1,4 @@
 export interface IResAdapter {
-    search(name: string, page: number)
+    search_show(name: string, page: number)
+    search_video(name: string, page: number)
 }

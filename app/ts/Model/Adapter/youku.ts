@@ -1,6 +1,6 @@
 import {IResAdapter} from './res-adapter'
 const Youku = require('youku-client');
-import {Video} from '../resource'
+import {Video, VideoCollection} from '../resource'
 
 export class YoukuAdapter implements IResAdapter {
     static client_id = '69a5ea43a68899c9'
@@ -11,19 +11,28 @@ export class YoukuAdapter implements IResAdapter {
         client_secret: YoukuAdapter.client_secret
     });
 
-    async search_show(name: string, page: number): Promise<Video[]> {
-        return new Promise<Video[]>((fulfill, reject) => {
+    async search_show(name: string, page: number): Promise<VideoCollection[]> {
+        return new Promise<VideoCollection[]>((fulfill, reject) => {
             this.client.get('searches/show/by_keyword', {
                 keyword: name,
                 unite: 1,
                 page: page,
                 count: 20
-            }, function(err, video, resp) {
+            }, function(err, video: SearchShowResult, resp) {
                 if (err) {
                     reject(err)
                 }
                 console.log(video);
-                fulfill(video)
+                let videos:VideoCollection[] = []
+                for (var v of video.shows) {
+                    let newv = new VideoCollection()
+                    newv.name = v.name
+                    newv.poster = v.bigPoster
+                    newv.url = v.link
+                    newv.raw = v
+                    videos.push(newv)
+                }
+                fulfill(videos)
             });           
         });
     }
@@ -34,12 +43,21 @@ export class YoukuAdapter implements IResAdapter {
                 keyword: name,
                 page: page,
                 count: 20
-            }, function(err, video, resp) {
+            }, function(err, video: SearchShowResult, resp) {
                 if (err) {
                     reject(err)
                 }
+                let videos:Video[] = []
+                for (var v of video.shows) {
+                    let newv = new Video()
+                    newv.name = v.name
+                    newv.thumbnail = v.bigThumbnail
+                    newv.url = v.play_link
+                    newv.raw = v
+                    videos.push(newv)
+                }
                 console.log(video);
-                fulfill(video)
+                fulfill(videos)
             });           
         });
     }
