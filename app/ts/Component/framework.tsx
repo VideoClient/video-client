@@ -4,7 +4,6 @@ import {LeftMenu} from './left-menu'
 import {User} from './user'
 const {AppBar, Drawer, MenuItem, TextField, IconButton} = MaterialUI
 import {ActionSearch, NavigationArrowBack, NavigationMenu} from 'material-ui/svg-icons';
-import {YoukuAdapter} from '../Model/Adapter/youku'
 
 export class Framework extends React.Component<any, any> {
     constructor(props) {
@@ -23,9 +22,9 @@ export class Framework extends React.Component<any, any> {
     onSearch(event) {
         if (event.keyCode == 13) {
             let video_name = event.target.value
-            this.youku.search(video_name, 1).then(video => {
-                
-            }).catch(reason => console.log(reason))
+
+            this.props.router.push('/search/'+video_name)
+           
         }
     }
 
@@ -38,7 +37,6 @@ export class Framework extends React.Component<any, any> {
 
     arrow_icon= <IconButton><NavigationArrowBack /></IconButton>
     menu_icon= <IconButton><NavigationMenu /></IconButton>
-    youku = new YoukuAdapter()
     
     static drawer_width = 300;
     private search_box = <Box alignItems='center'>

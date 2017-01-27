@@ -8,6 +8,7 @@
     "install": "typings install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "electron-forge package",
+	"package-all": "electron-forge package -a x64 -p all",
     "make": "electron-forge make"
   },
   "keywords": [
@@ -34,7 +35,7 @@
     "react-layout-components": "^3.0.1",
     "react-materialui-notifications": "^0.4.1",
     "react-redux": "^4.4.5",
-    "react-router": "^2.8.1",
+    "react-router": "^3.0.2",
     "react-router-redux": "^4.0.7",
     "react-swipeable-views": "^0.10.3",
     "react-tap-event-plugin": "^2.0.1",
