@@ -10,4 +10,5 @@ export class App {
     public static getConfig() {return App.config}
     public static getResourceLoader() {return App.resource_loader}
     public static getFramework() {return App.framework}
+    public static goto(path) {App.framework.props.router.push(path)}
 }

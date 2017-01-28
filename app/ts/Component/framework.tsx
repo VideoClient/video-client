@@ -9,8 +9,8 @@ import {App} from '../Model/app'
 export class Framework extends React.Component<any, any> {
     constructor(props) {
         super(props);
-        this.state = {open: false, icon: this.menu_icon, hidebar: false};
-        this.componentWillReceiveProps(props)
+        this.state = {open: false,  hidebar: false, 
+            icon: props.routes[1].path == 'home'? this.menu_icon : this.arrow_icon};
         App.framework = this
     }
     onMenuBtnClick() {

@@ -10,8 +10,9 @@ export class HomePage extends React.Component<any, any> {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this)
-        this.state = { slideIndex: 0, slideName: "categories" }
-        this.componentWillReceiveProps(props)
+        let tabname = props.params.tab
+        if (tabname == null) tabname = 'categories'
+        this.state = { slideIndex: this.map_value(tabname), slideName: tabname }
     }
 
     componentWillReceiveProps(nextProps) {
