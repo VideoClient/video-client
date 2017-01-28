@@ -1,13 +1,9 @@
 "use strict";
-const {app, protocol, BrowserWindow} = require('electron')
+const {app, protocol, BrowserWindow, Menu, Tray} = require('electron')
 const path = require('path')
 
 var mainWindow = null;
-
-app.commandLine.appendSwitch('ignore-gpu-blacklist', 'true');
-app.commandLine.appendSwitch('enable-gpu-rasterization', 'true');
-app.commandLine.appendSwitch('enable-zero-copy', 'true');
-app.commandLine.appendSwitch('disable-software-rasterizer', 'true');
+var appIcon = null;
 
 app.on('window-all-closed', function () {
     if (process.platform != 'darwin') {
@@ -31,9 +27,23 @@ app.on('activate-with-no-open-windows', function () {
 });
 
 
+
 app.on('ready', (event, launchinfo) => {
     openMainWindow()
 });
+
+
+var contextMenu = Menu.buildFromTemplate([
+    { label: 'Show App', click: function(){
+        mainWindow.show();
+    } },
+    { label: 'Quit', click: function(){
+        mainWindow.isQuiting = true;
+        app.quit();
+    } }
+]);
+
+
 function openMainWindow(vv = null) {
     // 自定义的local协议能够避开electron-compile的拦截策略，实现快速视频读取
     protocol.registerFileProtocol('local', (request, callback) => {
@@ -49,14 +59,32 @@ function openMainWindow(vv = null) {
     })
     
 
-    mainWindow = new BrowserWindow({ width: 1024, height: 768 });
-    mainWindow.maximize();
+    mainWindow = new BrowserWindow({ width: 1024, height: 768, icon: __dirname + '/icon/icon.png' });
+    mainWindow.maximize(); 
     if (vv == null)
         mainWindow.loadURL('file://' + __dirname + '/index.html#/');
     else
         mainWindow.loadURL('file://' + __dirname + '/index.html#/watch/' + encodeURIComponent(vv))
     mainWindow.openDevTools();
-    mainWindow.on('closed', function () {
-        mainWindow = null;
+    
+
+    mainWindow.on('minimize',function (event){
+        event.preventDefault()
+        mainWindow.hide();
     });
+    
+    mainWindow.isQuiting = false
+    mainWindow.on('close', function (event) {
+        if( !mainWindow.isQuiting){
+            event.preventDefault()
+            mainWindow.hide();
+        }
+        return false;
+    });
+
+
+    appIcon = new Tray(__dirname + '/icon/icon.png');
+
+    appIcon.setToolTip('VideoClient v1.0');
+    appIcon.setContextMenu(contextMenu);
 }
