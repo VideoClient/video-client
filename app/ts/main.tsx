@@ -1,5 +1,5 @@
 import {React, ReactRouter, Main} from "./StdLib/solo-ui"
-import {redux_provider_gen} from "./StdLib/solo-redux"
+// import {redux_provider_gen} from "./StdLib/solo-redux"
 import {HomePage,FavoritePage,HistoryPage,DownloadPage,SettingsPage,SearchPage,PlayerPage} from "./Page/"
 import {Framework} from "./Component/framework"
 
@@ -18,4 +18,5 @@ const route = <Route path="/" component={Framework}>
                 <Route path="watch/:v" component={PlayerPage}/>
               </Route>
 
-Main.bootstrap(route, "app", true, redux_provider_gen({}, React, Router))
+// Main.bootstrap(route, "app", true, redux_provider_gen({}, React, Router))
+Main.bootstrap(route, "app")

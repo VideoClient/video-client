@@ -2,6 +2,7 @@ import { React, MaterialUI, ReactLayout } from '../StdLib/solo-ui'
 const {Tabs, Tab, AppBar, Card, CardHeader, CardText} = MaterialUI
 import {Categories, Discovery} from '.'
 const {Box, VBox, Page, Container} = ReactLayout
+import { default as Video, Controls, Play, Mute, Seek, Fullscreen, Time, Overlay } from 'react-html5video';
 
 export class PlayerPage extends React.Component<any, any> {
     constructor(props) {
@@ -10,10 +11,19 @@ export class PlayerPage extends React.Component<any, any> {
     }
  
     render() {
-        return <div style={{width: '100%'}}>
-            <video controls autoPlay style={{height:'98%', width: '100%'}}>
+        return <Box fit>
+            <Video controls autoPlay style={{height:'100%', width: '100%'}} >
                 <source src={decodeURIComponent(this.props.params.v)} type="video/mp4" />
-            </video>
-        </div>
+
+                <Overlay />
+                <Controls>
+                    <Play />
+                    <Seek />
+                    <Time />
+                    <Mute />
+                    <Fullscreen  />
+                </Controls>
+            </Video>
+        </Box>
     }
 }

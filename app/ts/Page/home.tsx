@@ -11,6 +11,7 @@ export class HomePage extends React.Component<any, any> {
         super(props);
         this.handleChange = this.handleChange.bind(this)
         this.state = { slideIndex: 0, slideName: "categories" }
+        this.componentWillReceiveProps(props)
     }
 
     componentWillReceiveProps(nextProps) {
@@ -48,8 +49,8 @@ export class HomePage extends React.Component<any, any> {
                     {HomePage.tabs}
                 </Tabs>
             </Box>
-            <Box flex='1'>
-                <SwipeableViews style={{width: '100%', height: '100%'}} index={this.state.slideIndex} onChangeIndex={this.handleChange}>  
+            <Box flex='1' style={{height: '100%'}}>
+                <SwipeableViews style={{height: '100%'}} index={this.state.slideIndex} onChangeIndex={this.handleChange}>  
                     <Categories/>
                     <Discovery/>
                     <Discovery/>

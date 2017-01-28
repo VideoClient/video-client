@@ -37,14 +37,11 @@ function openMainWindow() {
     // 自定义的local协议能够避开electron-compile的拦截策略，实现快速视频读取
     protocol.registerFileProtocol('local', (request, callback) => {
     const url = decodeURIComponent(request.url.substr(8)); // 注意解码
-    console.log(url)
     if (url[0] == '/') {
         callback(path.normalize(url));
-        console.log(path.normalize(url));
     }
     else {
         callback(path.normalize(`${__dirname}/${url}`));
-        console.log(path.normalize(`${__dirname}/${url}`));
     }
   }, (error) => {
     if (error) console.error('Failed to register protocol');

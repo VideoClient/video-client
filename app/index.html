@@ -10,11 +10,17 @@
             display: -webkit-flex;
             display: flex;
         }
+        .all-fit {
+            height: 100%; 
+            margin: 0; 
+            padding: 0;
+        }
         </style>
         <link rel="stylesheet" type="text/less" href="css/style.less">
+        <link rel="stylesheet" type="text/css" href="css/ReactHtml5Video.css">
     </head>
-    <body>
-         <div id='app'></div>
+    <body class='all-fit'>
+         <div id='app' class='all-fit'></div>
          <script>require("./ts/main")</script>
     </body>
 </html>
