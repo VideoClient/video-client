@@ -73,7 +73,6 @@
         "ignore": [
           ".gitignore",
           "typings",
-          "compilerc",
           "tsconfig.json",
           "typings.json"
         ]

@@ -32,7 +32,7 @@ export class Config {
         return path.join(app.getPath('userData'), 'DB')
     }
     getDefaultPluginPaths(): string[] {
-        return [path.join(app.getAppPath(), 'packages'),
+        return [path.join(app.getAppPath(), '..', 'packages'),
                 path.join(app.getPath('userData'), 'Plugins')]
     }
 
