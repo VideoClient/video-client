@@ -18,7 +18,7 @@ export class SettingsPage extends React.Component<any, any> {
     }
     
     getDefaultPath():string {
-        return App.getConfig().getDefaultVideoPath() + '/VideoClient';
+        return App.getConfig().getDefaultVideoPath();
     }
 
     render() {

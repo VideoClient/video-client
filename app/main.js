@@ -4,7 +4,6 @@ const path = require('path')
 
 var mainWindow = null;
 var appIcon = null;
-
 app.on('window-all-closed', function () {
     if (process.platform != 'darwin') {
         app.quit();

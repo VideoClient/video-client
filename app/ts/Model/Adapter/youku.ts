@@ -1,8 +1,7 @@
-import {IResAdapter} from './res-adapter'
 const Youku = require('youku-client');
 import {Video, VideoCollection} from '../resource'
 
-export class YoukuAdapter implements IResAdapter {
+export class YoukuAdapter{
     static client_id = '69a5ea43a68899c9'
     static client_secret = 'fd2606fc758a3f55fc61ee06fdc4d451'
 
