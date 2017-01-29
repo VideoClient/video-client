@@ -15,16 +15,16 @@
     "video",
     "client"
   ],
-  "repository" : { 
-    "type" : "git", 
-    "url" : "https://github.com/npm/npm.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/npm.git"
   },
-  "url" : "https://github.com/owner/project/issues", 
-  "email" : "sunxfancy@gmail.com",
-  "author": { 
-    "name" : "sunxfancy", 
-    "email" : "sunxfancy@gmail.com", 
-    "url" : "https://github.com/sunxfancy"
+  "url": "https://github.com/owner/project/issues",
+  "email": "sunxfancy@gmail.com",
+  "author": {
+    "name": "sunxfancy",
+    "email": "sunxfancy@gmail.com",
+    "url": "https://github.com/sunxfancy"
   },
   "license": "MIT",
   "devDependencies": {
@@ -40,6 +40,7 @@
     "electron-gh-releases": "^2.0.4",
     "material-ui": "^0.16.7",
     "nedb": "^1.8.0",
+    "npm": "^4.1.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-html5video": "^1.4.0",
@@ -53,11 +54,30 @@
   "config": {
     "forge": {
       "make_targets": {
-        "win32": ["zip", "squirrel", "appx"],
-        "darwin": ["zip", "dmg"],
-        "linux": ["zip", "deb", "rpm"]
+        "win32": [
+          "zip",
+          "squirrel",
+          "appx"
+        ],
+        "darwin": [
+          "zip",
+          "dmg"
+        ],
+        "linux": [
+          "zip",
+          "deb",
+          "rpm"
+        ]
       },
-      "electronPackagerConfig": {},
+      "electronPackagerConfig": {
+        "ignore": [
+          ".gitignore",
+          "typings",
+          "compilerc",
+          "tsconfig.json",
+          "typings.json"
+        ]
+      },
       "electronWinstallerConfig": {
         "iconUrl": "app/icon/icon.ico",
         "setupIcon": "app/icon/icon.ico"
