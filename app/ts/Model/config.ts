@@ -1,4 +1,5 @@
-const {app} = require('electron')
+const remote = require('electron').remote;
+const app = remote.app;
 
 export class Config {
     getDefaultVideoPath(): string {

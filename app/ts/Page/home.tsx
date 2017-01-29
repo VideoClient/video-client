@@ -30,7 +30,7 @@ export class HomePage extends React.Component<any, any> {
     }
     handleChange(value, e, tab) {
         this.setState({slideIndex: value, slideName: tab.props['data-route']})
-        this.props.history.push("/home/"+tab.props['data-route'])
+        this.props.router.push("/home/"+tab.props['data-route'])
     }
 
     static tabs = [

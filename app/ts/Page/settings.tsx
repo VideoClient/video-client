@@ -1,14 +1,26 @@
 import { React, MaterialUI, ReactLayout } from '../StdLib/solo-ui'
-const {Tabs, Tab, AppBar, Card, CardHeader, CardText,FlatButton} = MaterialUI
+const {Tabs, Tab, AppBar, Card, CardHeader, CardText,FlatButton,TextField,SelectField,MenuItem} = MaterialUI
 import {Categories, Discovery} from '.'
 const {Box, VBox, Page, Container} = ReactLayout
-
+const remote = require('electron').remote;
+import {App} from '../Model/app'
 
 export class SettingsPage extends React.Component<any, any> {
     constructor(props) {
         super(props);
+        this.state = {qxd: 2}
     }
- 
+
+    openInNewWindow(path) {
+        const BrowserWindow = remote.BrowserWindow;
+        var win = new BrowserWindow({ width: 800, height: 600 });
+        win.loadURL(path);
+    }
+    
+    getDefaultPath():string {
+        return App.getConfig().getDefaultVideoPath() + '/VideoClient';
+    }
+
     render() {
         return <div style={{width: '100%'}}>
             <div className='content-card'>
@@ -18,16 +30,57 @@ export class SettingsPage extends React.Component<any, any> {
                         actAsExpander={true}
                         showExpandableButton={true} />
                     <CardText>
+                        <VBox>
+                        <TextField
+                            defaultValue={this.getDefaultPath()}
+                            floatingLabelText="视频下载路径"
+                        />
+                        <SelectField 
+                            floatingLabelText="优先选择清晰度"
+                            value={this.state.qxd}
+                            onChange={((e, i, v)=> this.setState({qxd: v})).bind(this)}
+                        >
+                            <MenuItem value={1} primaryText="标清" />
+                            <MenuItem value={2} primaryText="高清" />
+                            <MenuItem value={3} primaryText="超清" />
+                        </SelectField>
+                        </VBox>
+                    </CardText>
+                    <CardText expandable={true}>
+                        <VBox>
+                        <h4>Chrome Info</h4>
                         <Box>
-                            <FlatButton href='chrome://gpu'>GPU info</FlatButton>
-                            <FlatButton href='chrome://media-internals/'>Media</FlatButton>
-                            
+                            <FlatButton onClick={()=>this.openInNewWindow('chrome://gpu')}>GPU info</FlatButton>
+                            <FlatButton onClick={()=>this.openInNewWindow('chrome://media-internals/')}>Media</FlatButton>
+                        </Box>
+                        </VBox>
+                    </CardText>
+                </Card> 
+            </div>
+            <div className='content-card'>
+                <Card>
+                    <CardHeader 
+                        title="扩展程序设置" 
+                        actAsExpander={true}
+                        showExpandableButton={true} />
+                    <CardText>
+                        <Box>
+
                         </Box>
                     </CardText>
                     <CardText expandable={true}>
                         
                     </CardText>
-                </Card> 
+                </Card>
+            </div>
+            <div className='content-card'>
+                <Card>
+                    <CardText>
+                        <h1>Video Client 多功能视频客户端</h1>
+                        <h3>软件版本: v0.1.0</h3>
+                        <h3>作者: 西风逍遥游 (sunxfancy@gmail.com)</h3>
+                    </CardText>
+                </Card>
             </div>
         </div>
     }

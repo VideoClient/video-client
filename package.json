@@ -15,7 +15,17 @@
     "video",
     "client"
   ],
-  "author": "sxf",
+  "repository" : { 
+    "type" : "git", 
+    "url" : "https://github.com/npm/npm.git"
+  },
+  "url" : "https://github.com/owner/project/issues", 
+  "email" : "sunxfancy@gmail.com",
+  "author": { 
+    "name" : "sunxfancy", 
+    "email" : "sunxfancy@gmail.com", 
+    "url" : "https://github.com/sunxfancy"
+  },
   "license": "MIT",
   "devDependencies": {
     "devtron": "^1.3.0",
@@ -27,6 +37,7 @@
   },
   "dependencies": {
     "electron-compile": "^5.1.3",
+    "electron-gh-releases": "^2.0.4",
     "material-ui": "^0.16.7",
     "nedb": "^1.8.0",
     "react": "^15.3.2",
@@ -34,37 +45,39 @@
     "react-html5video": "^1.4.0",
     "react-layout-components": "^3.0.1",
     "react-materialui-notifications": "^0.4.1",
-    "react-player": "^0.14.1",
-    "react-redux": "^4.4.5",
     "react-router": "^3.0.2",
-    "react-router-redux": "^4.0.7",
     "react-swipeable-views": "^0.10.3",
     "react-tap-event-plugin": "^2.0.1",
-    "redux": "^3.6.0",
-    "redux-form": "^6.0.5",
-    "redux-form-material-ui": "^4.0.1",
     "youku-client": "^0.1.2"
   },
   "config": {
     "forge": {
       "make_targets": {
-        "win32": [
-          "squirrel"
-        ],
-        "darwin": [
-          "zip"
-        ],
-        "linux": [
-          "deb",
-          "rpm"
-        ]
+        "win32": ["zip", "squirrel", "appx"],
+        "darwin": ["zip", "dmg"],
+        "linux": ["zip", "deb", "rpm"]
       },
       "electronPackagerConfig": {},
       "electronWinstallerConfig": {
-        "name": ""
+        "iconUrl": "app/icon/icon.ico",
+        "setupIcon": "app/icon/icon.ico"
       },
-      "electronInstallerDebian": {},
-      "electronInstallerRedhat": {},
+      "electronInstallerDebian": {
+        "icon": "app/icon/icon.png",
+        "categories": [
+          "Video"
+        ]
+      },
+      "electronInstallerRedhat": {
+        "icon": "app/icon/icon.png",
+        "categories": [
+          "Video"
+        ]
+      },
+      "electronInstallerDMG": {
+        "icon": "app/icon/icon.ico",
+        "icon-size": 64
+      },
       "github_repository": {
         "owner": ""
       },
