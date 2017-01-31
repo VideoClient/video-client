@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/VideoClient/video-client.svg?branch=master)](https://travis-ci.org/VideoClient/video-client)
+
 Video Client
 =====================
 
