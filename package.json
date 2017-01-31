@@ -5,7 +5,6 @@
   "main": "app/main.js",
   "scripts": {
     "start": "electron-forge start",
-    "install": "typings install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "electron-forge package",
     "package-all": "electron-forge package -a x64 -p all",

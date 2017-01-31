@@ -1,6 +1,10 @@
 language: node_js
 node_js: "node"
 
+cache:
+  directories:
+    - node_modules
+
 install:
   - npm install
   - cd packages/vc-youku-plugin
