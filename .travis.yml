@@ -20,11 +20,5 @@ install:
 - npm install
 script:
 - npm run make
-deploy:
-  - npm run publish
-  provider: releases
-  api_key:
-    secure: qluEYrIneGizYHbsV05JepMLhsP8XuOzOKpykrBc2+1mo30jrhd/00xeADpb7Kbdq22fKe7bCBZ6L5cmljj+Rjw2zrMPEB+ltUlWcbqrtBCTMft3Zn0CGqROqrsDX2crMBK7KtK79qdxvoto9n/L+OgfSk7yvG126ESz2CnNuY02lO6NaSky5awsCjWpSOxO34minto4fX8L6LqQ1XSH3nIp9UUwNbF99IEexAM1hRa4693p2AaFEmFXvU5EoqQvOUgtrv4ZCQaqmA2kSDrm6GWzs5NhoDU0zJGRohTHPwNt4XUgVQiFcTuDPvjJk1y8213f1MpSVS306umHMnz2dDj10MHmRV/AloZwznlotBh9ULqHOB23PqsTJck1ehS40tk2RaF20HYMNNafw+gNvvW2wrpRDXMUxXZqNqg3RDj8A2oQNOQAvkWXEaYcQzfJ5Wce5khC0kVVWrrCcahWpicKlCJU+o/lsqkzEzhS8Y9GiZeulV7sVMpA73DzeWLdkDVUzmu0Rz4pWulJPXXDS6HGCoqo3mHDLjfqB9KX6YUeRVS+yDfnjJF7yd2hSkvEQV1XvtonSwSUUWh4eHrEkyYLqKZN3EKaQhfliiZGPG1/n4sH/wAHuLPlf6XI14iQcqvP4iTKA35gx7WSo1AW6m/7yincXq5fukYwPOyZX38=
-  on:
-    repo: VideoClient/video-client
-    tag: true
+after_script:
+  - if [ ${TRAVIS_TAG} ]; then npm run publish fi
