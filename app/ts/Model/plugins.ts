@@ -29,7 +29,6 @@ export class Plugins {
                     if (!err)
                         files.forEach(file => {
                             let subdir = path.join(i, file)
-                            console.log(subdir)
                             if (fs.statSync(subdir).isDirectory()) 
                                 this.scan_package(subdir)
                                     .then(v=> {
