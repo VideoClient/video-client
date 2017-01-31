@@ -18,12 +18,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/npm/npm.git"
+    "url": "git+https://github.com/VideoClient/video-client.git"
   },
-  "url": "https://github.com/owner/project/issues",
+  "bugs": {
+    "url": "https://github.com/VideoClient/video-client/issues"
+  },
+  "homepage": "https://github.com/VideoClient/video-client#readme",
   "email": "sunxfancy@gmail.com",
   "author": {
-    "name": "sunxfancy",
+    "name": "sxf",
     "email": "sunxfancy@gmail.com",
     "url": "https://github.com/sunxfancy"
   },
