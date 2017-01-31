@@ -111,7 +111,8 @@
         "icon-size": 64
       },
       "github_repository": {
-        "owner": ""
+        "owner": "VideoClient",
+        "name": "video-client"
       },
       "windowsStoreConfig": {
         "packageName": ""
