@@ -1,5 +1,6 @@
 {
   "globalDependencies": {
+    "electron": "registry:dt/electron#1.4.8+20170104211658",
     "material-ui": "registry:dt/material-ui#0.15.1+20160919210656",
     "node": "registry:dt/node#6.0.0+20160925070332",
     "react": "registry:dt/react#0.14.0+20160923124221",

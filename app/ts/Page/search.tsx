@@ -2,7 +2,7 @@ import { React, MaterialUI, ReactLayout } from '../StdLib/solo-ui'
 const {Tabs, Tab, AppBar, Card, CardHeader, CardText} = MaterialUI
 import {Categories, Discovery} from '.'
 const {Box, VBox, Page, ScrollView, Container} = ReactLayout
-import {YoukuAdapter} from '../Model/Adapter/youku'
+import {ISearchAdapter} from '../Model/res-adapter'
 import {Video, VideoCollection} from '../Model/resource'
 import {ShowBox} from '../Component/showbox'
 
@@ -11,7 +11,8 @@ export class SearchPage extends React.Component<any, any> {
     constructor(props) {
         super(props);
         this.update(props.params.q)
-        this.state = {videos: []}
+        let search_adapters: ISearchAdapter[] 
+        this.state = {videos: [], sa: search_adapters}
     }
 
     componentWillReceiveProps(nextProps) {
@@ -23,11 +24,11 @@ export class SearchPage extends React.Component<any, any> {
     private q: string
     update(q: string) {
         this.q = q
-        this.youku.search_show(q, 1).then(v => {
+        this.state.sa[0].search_show(q, 1).then(v => {
             this.setState({videos: v})
         }).catch(reason => console.log(reason))
     }
-    youku = new YoukuAdapter()
+    
 
     render() {
         let shows = []

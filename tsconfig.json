@@ -12,10 +12,10 @@
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true
     },
-    "filesGlob": [
-        "typings/*.d.ts",
-        "app/ts/*.ts",
-        "app/ts/*.tsx"
+    "include": [
+        "typings/**/*.d.ts",
+        "app/ts/**/*",
+        "packages/**/*"
     ],
     "compileOnSave": false
 }

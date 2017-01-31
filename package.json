@@ -9,6 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "electron-forge package",
     "package-all": "electron-forge package -a x64 -p all",
+    "build-dts": "dts-generator --name video-client --project . --out built/video-client.d.ts",
     "make": "electron-forge make"
   },
   "keywords": [
@@ -29,6 +30,7 @@
   "license": "MIT",
   "devDependencies": {
     "devtron": "^1.3.0",
+    "dts-generator": "^2.0.0",
     "electron-forge": "^2.7.2",
     "electron-prebuilt-compile": "1.4.15",
     "electron-react-devtools": "^0.4.0",

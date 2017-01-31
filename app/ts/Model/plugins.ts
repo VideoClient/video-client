@@ -33,8 +33,10 @@ export class Plugins {
                             if (fs.statSync(subdir).isDirectory()) 
                                 this.scan_package(subdir)
                                     .then(v=> {
-                                        this.plugins[v.name] = this.loadPlugin(subdir)
-                                        this.plugins[v.name].__package = v
+                                        let plugin = this.loadPlugin(subdir)
+                                        plugin.__package = v
+                                        this.plugins[v.name] = plugin
+                                        console.log(plugin)
                                     })
                                     .catch(e=> reject(e))
                             });
@@ -65,13 +67,12 @@ export class Plugins {
     }
 
     loadPlugin(p: string) {
-        return require(p)
+        return require(p)(require('./index'))
     }
 
     install(name: string) {
         
     }
-
     
     save() {
 
