@@ -1,8 +1,8 @@
-import { React, MaterialUI, ReactLayout } from '../StdLib/solo-ui'
-const { List, ListItem, Divider, Drawer, Paper, FlatButton } = MaterialUI
+import React = require('react')
+import { List, ListItem, Divider, Drawer, Paper, FlatButton } from 'material-ui'
 import { NavigationFullscreen, ImagePhotoCamera, NavigationFullscreenExit, ImageBrightness2, NotificationSync, 
     NavigationChevronLeft, NavigationChevronRight } from 'material-ui/svg-icons';
-const {Box, VBox, Page, Container} = ReactLayout
+const {Box, VBox, Page, Container} = require('react-layout-components')
 import {Video} from '../Model/resource'
 
 export interface VideoBoxProps {

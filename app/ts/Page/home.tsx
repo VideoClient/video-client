@@ -1,10 +1,8 @@
-import { React, MaterialUI, ReactLayout, ReactRouter, Main } from '../StdLib/solo-ui'
-const {Tabs, Tab, AppBar} = MaterialUI
+import React = require('react')
+import {Tabs, Tab, AppBar} from 'material-ui'
 import {Categories, Discovery} from '.'
-const {Box, VBox, Page, Container} = ReactLayout
+const {Box, VBox, Page, Container} = require('react-layout-components')
 import SwipeableViews from 'react-swipeable-views'
-
-
 
 export class HomePage extends React.Component<any, any> {
     constructor(props) {

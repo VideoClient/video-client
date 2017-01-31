@@ -1,6 +1,6 @@
-import { React, MaterialUI, ReactLayout } from '../StdLib/solo-ui'
-const {FlatButton, Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} = MaterialUI
-const {Box, VBox, Page, Container, ScrollView} = ReactLayout
+import React = require('react')
+import {FlatButton, Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui'
+const {Box, VBox, Page, Container, ScrollView} = require('react-layout-components')
 
 
 export class Category extends React.Component<any, any> {

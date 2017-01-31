@@ -1,9 +1,10 @@
-import {React, ReactRouter, Main} from "./StdLib/solo-ui"
+import React = require('react')
+import {Route,Router,IndexRedirect} from 'react-router'
+import {Main} from "./StdLib/solo-ui"
 // import {redux_provider_gen} from "./StdLib/solo-redux"
 import {HomePage,FavoritePage,HistoryPage,DownloadPage,SettingsPage,SearchPage,PlayerPage} from "./Page/"
 import {Framework} from "./Component/framework"
 import {App} from './Model/app'
-const {Route,Router,IndexRedirect} = ReactRouter
 
 const route = <Route path="/" component={Framework}>
                 <IndexRedirect to="/home" />

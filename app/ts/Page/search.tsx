@@ -1,7 +1,7 @@
-import { React, MaterialUI, ReactLayout } from '../StdLib/solo-ui'
-const {Tabs, Tab, AppBar, Card, CardHeader, CardText} = MaterialUI
+import React = require('react')
+import {Tabs, Tab, AppBar, Card, CardHeader, CardText} from 'material-ui'
 import {Categories, Discovery} from '.'
-const {Box, VBox, Page, ScrollView, Container} = ReactLayout
+const {Box, VBox, Page, ScrollView, Container} = require('react-layout-components')
 import {ISearchAdapter} from '../Model/res-adapter'
 import {Video, VideoCollection} from '../Model/resource'
 import {ShowBox} from '../Component/showbox'

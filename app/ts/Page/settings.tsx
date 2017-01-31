@@ -1,8 +1,8 @@
-import { React, MaterialUI, ReactLayout } from '../StdLib/solo-ui'
-const {Tabs, Tab, AppBar, Card, CardHeader, CardText,FlatButton,TextField,SelectField,MenuItem} = MaterialUI
+import React = require('react')
+import {Tabs, Tab, AppBar, Card, CardHeader, CardText,FlatButton,TextField,SelectField,MenuItem} from 'material-ui'
 import {Categories, Discovery} from '.'
-const {Box, VBox, Page, Container} = ReactLayout
-const remote = require('electron').remote;
+const {Box, VBox, Page, Container} = require('react-layout-components')
+import {remote} from 'electron';
 import {App} from '../Model/app'
 
 export class SettingsPage extends React.Component<any, any> {

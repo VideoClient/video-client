@@ -1,7 +1,7 @@
-import { React, MaterialUI, ReactLayout } from '../StdLib/solo-ui'
-const {Tabs, Tab, AppBar, Card, CardHeader, CardText} = MaterialUI
+import React = require('react')
+import {Tabs, Tab, AppBar, Card, CardHeader, CardText} from 'material-ui'
 import {Categories, Discovery} from '.'
-const {Box, VBox, Page, Container} = ReactLayout
+const {Box, VBox, Page, Container} = require('react-layout-components')
 
 
 export class FavoritePage extends React.Component<any, any> {

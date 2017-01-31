@@ -1,7 +1,7 @@
-import { React, MaterialUI, ReactLayout } from '../StdLib/solo-ui'
-const {Tabs, Tab, AppBar, Card, CardHeader, CardText} = MaterialUI
+import React = require('react')
+import {Tabs, Tab, AppBar, Card, CardHeader, CardText} from 'material-ui'
 import {Categories, Discovery} from '.'
-const {Box, VBox, Page, Container} = ReactLayout
+const {Box, VBox, Page, Container} = require('react-layout-components')
 import { default as Video, Controls, Play, Mute, Seek, Fullscreen, Time, Overlay } from 'react-html5video';
 
 export class PlayerPage extends React.Component<any, any> {

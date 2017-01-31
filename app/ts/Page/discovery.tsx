@@ -1,4 +1,4 @@
-import { React, MaterialUI } from '../StdLib/solo-ui'
+import React = require('react')
 
 export class Discovery extends React.Component<any, any> {
     render() {

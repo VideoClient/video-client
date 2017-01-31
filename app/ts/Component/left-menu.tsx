@@ -1,5 +1,5 @@
-import { React, MaterialUI } from '../StdLib/solo-ui'
-const { List, ListItem, Divider, Drawer } = MaterialUI
+import * as React from 'react'
+import { List, ListItem, Divider, Drawer } from 'material-ui'
 import { ActionHome, ActionGrade, ActionHistory, FileCloudDownload, ActionSettings, 
     NavigationChevronLeft, NavigationChevronRight } from 'material-ui/svg-icons';
 

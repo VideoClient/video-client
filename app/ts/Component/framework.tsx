@@ -1,10 +1,10 @@
-import {React, ReactLayout, MaterialUI} from '../StdLib/solo-ui'
-const {Box, VBox, Page, Container} = ReactLayout
+import * as React from 'react'
 import {LeftMenu} from './left-menu'
 import {User} from './user'
-const {AppBar, Drawer, MenuItem, TextField, IconButton} = MaterialUI
-import {ActionSearch, NavigationArrowBack, NavigationMenu} from 'material-ui/svg-icons';
+import {AppBar, Drawer, MenuItem, TextField, IconButton} from 'material-ui'
+import {ActionSearch, NavigationArrowBack, NavigationMenu} from 'material-ui/svg-icons'
 import {App} from '../Model/app'
+const {Box, VBox, Page, Container} = require("react-layout-components")
 
 export class Framework extends React.Component<any, any> {
     constructor(props) {
@@ -48,7 +48,7 @@ export class Framework extends React.Component<any, any> {
     private search_box = <Box alignItems='center'>
         <ActionSearch color='#fff'/>
         <TextField  onKeyDown={this.onSearch.bind(this)} 
-                    onFocus={(event)=> event.target.value = '' }
+                    onFocus={ event => event.target.value = '' }
                     hintText='Search...'/>
     </Box>
 

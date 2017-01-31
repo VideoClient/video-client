@@ -1,15 +1,7 @@
-import * as _React from "react"
-import * as _ReactDOM from "react-dom"
-import * as _ReactRouter  from 'react-router'
-import * as _MaterialUI from 'material-ui'
-const _ReactLayout = require('react-layout-components')
-
-export const React = _React
-export const ReactDOM = _ReactDOM
-export const ReactRouter = _ReactRouter
-export const MaterialUI = _MaterialUI
-export const ReactLayout = _ReactLayout
-
+import * as React from "react"
+import * as ReactDOM from "react-dom"
+import * as ReactRouter  from 'react-router'
+import * as MaterialUI from 'material-ui'
 
 const { Router, Route, hashHistory } = ReactRouter
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
