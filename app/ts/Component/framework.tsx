@@ -28,7 +28,9 @@ export class Framework extends React.Component<any, any> {
             this.props.router.push('/search/'+video_name)
         }
     }
-
+    onSearchBarFocus(event) {
+        event.target.value = ''
+    }
     setHidebar(arg: boolean) {
         this.setState({hidebar: arg})
     }
@@ -48,7 +50,7 @@ export class Framework extends React.Component<any, any> {
     private search_box = <Box alignItems='center'>
         <ActionSearch color='#fff'/>
         <TextField  onKeyDown={this.onSearch.bind(this)} 
-                    onFocus={ event => event.target.value = '' }
+                    onFocus={ this.onSearchBarFocus }
                     hintText='Search...'/>
     </Box>
 

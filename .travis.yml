@@ -1,0 +1,10 @@
+language: node_js
+node_js: "node"
+
+install:
+  - npm install
+  - cd packages/vc-youku-plugin
+  - npm install
+
+script:
+  - npm run make
