@@ -23,5 +23,5 @@ Using `npm` to build this project.
 npm install
 ```
 
-For all subproject, we should run `npm install` too.
+For all subprojects, we should run `npm install` too.
 
