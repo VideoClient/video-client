@@ -9,7 +9,8 @@
     "package": "electron-forge package",
     "package-all": "electron-forge package -a x64 -p all",
     "build-dts": "dts-generator --name video-client --project . --out built/video-client.d.ts",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
   },
   "keywords": [
     "video",
