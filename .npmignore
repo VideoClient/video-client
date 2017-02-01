@@ -1,0 +1,11 @@
+.travis.yml
+.gitignore
+.gitmodules
+tsconfig.json
+.git/
+.vscode/
+build/
+built/
+out/
+coverage/
+.nyc_output/
