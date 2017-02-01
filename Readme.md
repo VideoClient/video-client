@@ -27,3 +27,6 @@ npm install
 
 For all subprojects, we should run `npm install` too.
 
+## Run
+
+Using `npm start` to run the app.
