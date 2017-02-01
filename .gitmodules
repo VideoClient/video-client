@@ -1,0 +1,3 @@
+[submodule "packages/vc-youku-plugin"]
+	path = packages/vc-youku-plugin
+	url = https://github.com/VideoClient/vc-youku-plugin.git
