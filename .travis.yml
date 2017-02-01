@@ -16,8 +16,7 @@ cache:
   - node_modules
 install:
 - npm install
-- cd packages/vc-youku-plugin
-- npm install
+- cd packages/vc-youku-plugin && npm install
 script:
 - npm test
 after_script:
