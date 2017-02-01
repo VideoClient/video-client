@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/VideoClient/video-client.svg?branch=master)](https://travis-ci.org/VideoClient/video-client)
-
+[![Build status](https://ci.appveyor.com/api/projects/status/hnnu3h9va9u9uiik/branch/master?svg=true)](https://ci.appveyor.com/project/sunxfancy/video-client/branch/master)
 Video Client
 =====================
 
