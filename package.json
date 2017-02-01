@@ -5,7 +5,7 @@
   "main": "app/main.js",
   "scripts": {
     "start": "electron-forge start",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\"",
     "package": "electron-forge package",
     "package-all": "electron-forge package -a x64 -p all",
     "build-dts": "dts-generator --name video-client --project . --out built/video-client.d.ts",
@@ -113,7 +113,8 @@
       },
       "github_repository": {
         "owner": "VideoClient",
-        "name": "video-client"
+        "name": "video-client",
+        "draft": false
       },
       "windowsStoreConfig": {
         "packageName": ""

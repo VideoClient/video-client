@@ -1,8 +1,5 @@
 language: node_js
 node_js: node
-os:
-  - linux
-  - osx
 dist: trusty
 sudo: false
 git:
@@ -19,6 +16,6 @@ install:
 - cd packages/vc-youku-plugin
 - npm install
 script:
-- npm run make
+- npm test
 after_script:
-  - if [ ${TRAVIS_TAG} ]; then npm run publish -- --tag ${TRAVIS_TAG}; fi
+- if [ ${TRAVIS_TAG} ]; then npm run publish -- --tag ${TRAVIS_TAG}; fi
