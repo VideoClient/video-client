@@ -113,8 +113,7 @@
       },
       "github_repository": {
         "owner": "VideoClient",
-        "name": "video-client",
-        "draft": false
+        "name": "video-client"
       },
       "windowsStoreConfig": {
         "packageName": ""

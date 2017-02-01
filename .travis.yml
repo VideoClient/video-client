@@ -18,4 +18,4 @@ install:
 script:
 - npm test
 after_script:
-- if [ ${TRAVIS_TAG} ]; then npm run publish -- --tag ${TRAVIS_TAG}; fi
+- if [ ${TRAVIS_TAG} ]; then npm run publish -- --tag="${TRAVIS_TAG}"; fi
