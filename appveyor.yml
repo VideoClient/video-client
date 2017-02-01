@@ -1,0 +1,31 @@
+# Test against the latest version of this Node.js version
+environment:
+  nodejs_version: "7"
+
+platform: 
+  - x64
+clone_depth: 3
+
+# Install scripts. (runs after repo cloning)
+install:
+  - git submodule update --init --recursive
+  # Get the latest stable version of Node.js or io.js
+  - ps: Install-Product node $env:nodejs_version
+  # install modules
+  - npm install
+  - cd packages/vc-youku-plugin
+  - npm install
+
+# Post-install test scripts.
+test_script:
+  # Output useful info for debugging.
+  - node --version
+  - npm --version
+  # run tests
+  - npm test
+
+after_test:
+  - cmd: IF %APPVEYOR_REPO_TAG% ( npm run publish )
+
+# Don't actually build.
+build: off
