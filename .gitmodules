@@ -1,0 +1,3 @@
+[submodule "vc-youku-plugin"]
+	path = vc-youku-plugin
+	url = ./packages/vc-youku-plugin/
