@@ -1,9 +1,10 @@
 {
   "name": "video-client",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "一款PC端视频聚合应用，提供国内主流视频站资源。",
   "main": "app/main.js",
   "scripts": {
+    "postinstall": "install-sub",
     "start": "electron-forge start",
     "test": "echo \"Error: no test specified\"",
     "package": "electron-forge package",
@@ -45,6 +46,7 @@
     "electron-forge": "^2.7.2",
     "electron-prebuilt-compile": "1.4.15",
     "electron-react-devtools": "^0.4.0",
+    "submodule-tool": "^0.1.1",
     "typescript": "^2.1.5"
   },
   "dependencies": {
