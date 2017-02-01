@@ -3,6 +3,8 @@
 Video Client
 =====================
 
+[![Join the chat at https://gitter.im/VideoClient/video-client](https://badges.gitter.im/VideoClient/video-client.svg)](https://gitter.im/VideoClient/video-client?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 A hackable video aggregator for multi-platform with many plugins.
 
 There are many video aggregator for TV and iPad, but none for PC. So this project focus on building a video client for different video websites.
