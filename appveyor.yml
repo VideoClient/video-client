@@ -12,8 +12,7 @@ install:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
   # install modules
-  - ps: npm install
-  - ps: cd packages/vc-youku-plugin && npm install
+  - npm install
 
 # Post-install test scripts.
 test_script:
