@@ -22,9 +22,14 @@ export class HomePage extends React.Component<IHomePageProps, IHomePageStates> {
         this.handleChange = this.handleChange.bind(this)
         let tabname = props.params.tab
         if (tabname == null) tabname = 'categories'
-        App.getHomeTabs().loadDefaultTabs()
+        App.getHomeTabs().onChangeTabs(this.updateTabs.bind(this))
+        if (App.getHomeTabs().tabs == null) App.getHomeTabs().loadDefaultTabs()
         this.state = {slideName: tabname, tabs: App.getHomeTabs(), slideIndex: this.map_value(tabname) }
         console.log(this.state.tabs)
+    }
+
+    updateTabs() {
+        this.setState({tabs: App.getHomeTabs()})
     }
 
     componentWillReceiveProps(nextProps) {
@@ -62,7 +67,7 @@ export class HomePage extends React.Component<IHomePageProps, IHomePageStates> {
         let tab_coms = []
         let num = 0
         for (let i of tabs) {
-            tab_coms.push(<Tab key={num} label={i.showName} data-route={i.name} value={num} />) 
+            tab_coms.push(<Tab key={i.defaultKey} label={i.showName} data-route={i.name} value={num} />) 
             num++
         }
         return tab_coms

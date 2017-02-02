@@ -4,7 +4,8 @@ const {Box, VBox, Page, Container, ScrollView} = require('react-layout-component
 
 export class Discovery extends React.Component<any, any> {
     render() {
-        return <Box fit style={{background: 'blue'}}>
+        return <Box fit>
+            <h1>发现新大陆</h1>
             {/* <div className='content-card'>
                 <Card>
                     <CardHeader

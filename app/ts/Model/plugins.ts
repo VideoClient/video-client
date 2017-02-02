@@ -66,7 +66,10 @@ export class Plugins {
     }
 
     loadPlugin(p: string) {
-        return require(p)(require('./index'))
+        let plugin = require(p)(require('./index'))
+        console.log(plugin)
+        if (plugin['regTab']) App.getHomeTabs().regTab(plugin['regTab'])
+        return plugin
     }
 
     install(name: string) {
