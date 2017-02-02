@@ -1,5 +1,5 @@
-export * from './categories'
 export * from './home'
+export * from './categories'
 export * from './discovery'
 export * from './favorite'
 export * from './history'

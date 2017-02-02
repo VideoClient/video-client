@@ -1,16 +1,30 @@
 import React = require('react')
 import {Tabs, Tab, AppBar} from 'material-ui'
-import {Categories, Discovery} from '.'
 const {Box, VBox, Page, Container} = require('react-layout-components')
 import SwipeableViews from 'react-swipeable-views'
+import {App, HomePageTabs} from '../Model'
 
-export class HomePage extends React.Component<any, any> {
-    constructor(props) {
+export interface IHomePageProps {
+    tabname: string
+    params: any
+    router: any
+}
+
+export interface IHomePageStates {
+    slideIndex: number
+    slideName: string
+    tabs: HomePageTabs
+}
+
+export class HomePage extends React.Component<IHomePageProps, IHomePageStates> {
+    constructor(props: IHomePageProps) {
         super(props);
         this.handleChange = this.handleChange.bind(this)
         let tabname = props.params.tab
         if (tabname == null) tabname = 'categories'
-        this.state = { slideIndex: this.map_value(tabname), slideName: tabname }
+        App.getHomeTabs().loadDefaultTabs()
+        this.state = {slideName: tabname, tabs: App.getHomeTabs(), slideIndex: this.map_value(tabname) }
+        console.log(this.state.tabs)
     }
 
     componentWillReceiveProps(nextProps) {
@@ -20,12 +34,14 @@ export class HomePage extends React.Component<any, any> {
         }
     }
 
-    map_value(name: string) {
-        for (var i of HomePage.tabs)
-            if (name == i.props['data-route'])
-                return i.props['value']
+    map_value(name: string):number {
+        let t = App.getHomeTabs().getTabs()
+        for (let i = 0; i < t.length; ++i)
+            if (name == t[i].name)
+                return i
         return 0
     }
+
     handleChange(value, e, tab) {
         this.setState({slideIndex: value, slideName: tab.props['data-route']})
         this.props.router.push("/home/"+tab.props['data-route'])
@@ -41,22 +57,27 @@ export class HomePage extends React.Component<any, any> {
         <Tab key={6} label="直播" data-route="online" value={6}></Tab>
     ]
 
+    tabsRenderer() {
+        let tabs = this.state.tabs.getTabs()
+        let tab_coms = []
+        let num = 0
+        for (let i of tabs) {
+            tab_coms.push(<Tab key={num} label={i.showName} data-route={i.name} value={num} />) 
+            num++
+        }
+        return tab_coms
+    }
+
     render() {
         return <Container><VBox>
             <Box flex='none'>
                 <Tabs ref='tabs' style={{width: '100%'}} onChange={this.handleChange} value={this.state.slideIndex}>
-                    {HomePage.tabs}
+                    {this.tabsRenderer()}
                 </Tabs>
             </Box>
-            <Box flex='1' style={{height: '100%'}}>
-                <SwipeableViews style={{height: '100%'}} index={this.state.slideIndex} onChangeIndex={this.handleChange}>  
-                    <Categories/>
-                    <Discovery/>
-                    <Discovery/>
-                    <Discovery/>
-                    <Discovery/>
-                    <Discovery/>
-                    <Discovery/>
+            <Box flex='1' fit>
+                <SwipeableViews style={{height: '100%'}} index={this.state.slideIndex} onChangeIndex={this.handleChange} >
+                    {this.state.tabs.getAllComs()}
                 </SwipeableViews>
             </Box>
         </VBox></Container>

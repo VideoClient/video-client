@@ -34,7 +34,6 @@ export class Category extends React.Component<any, any> {
 export class Categories extends React.Component<any, any> {
     
     render() {
-
         let main_cates = []
         for(var name of Category.main_categories) {
             main_cates.push(<Category key={name} kind={name}/>)
