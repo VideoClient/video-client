@@ -1,3 +1,6 @@
 [submodule "packages/vc-youku-plugin"]
 	path = packages/vc-youku-plugin
 	url = https://github.com/VideoClient/vc-youku-plugin.git
+[submodule "packages/vc-baiduyun-plugin"]
+	path = packages/vc-baiduyun-plugin
+	url = git@github.com:VideoClient/vc-baiduyun-plugin.git
