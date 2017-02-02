@@ -64,15 +64,15 @@ function openMainWindow(vv = null) {
         mainWindow.loadURL('file://' + __dirname + '/index.html#/');
     else
         mainWindow.loadURL('file://' + __dirname + '/index.html#/watch/' + encodeURIComponent(vv))
-    mainWindow.openDevTools();
     
+    // mainWindow.openDevTools();
 
     mainWindow.on('minimize',function (event){
         event.preventDefault()
         mainWindow.hide();
     });
     
-    mainWindow.isQuiting = false
+    mainWindow.isQuiting = true // 默认是否退出
     mainWindow.on('close', function (event) {
         if( !mainWindow.isQuiting){
             event.preventDefault()
