@@ -1,8 +1,11 @@
 import {ISearchAdapter, IClassifiedVideoAdapter} from '.'
 
+
+
+
 export class ResourceLoader implements ISearchAdapter, IClassifiedVideoAdapter {
-    search_adapters: ISearchAdapter[]
-    classified_adapters: IClassifiedVideoAdapter[]
+    search_adapters: ISearchAdapter[] = []
+    classified_adapters: IClassifiedVideoAdapter[] = []
 
     regSearchAdapter(searcher: ISearchAdapter) {
         this.search_adapters.push(searcher)
@@ -15,35 +18,71 @@ export class ResourceLoader implements ISearchAdapter, IClassifiedVideoAdapter {
 
     search_video(name: string, page: number, count?: number):Promise<Video[]>  // 视频
     {
-        return this.search_basic<Video>('search_video', name, page, count)
-    }
-
-    search_album(name: string, page: number, count?: number):Promise<VideoCollection[]> // 专辑
-    {
-        return this.search_basic<VideoCollection>('search_album', name, page, count)
-    }
-
-    search_show(name: string, page: number, count?: number):Promise<VideoCollection[]> // 节目
-    {
-        return this.search_basic<VideoCollection>('search_show', name, page, count)
-    }
-
-    
-    search_basic<T>(funcname: string, name: string, page: number, count?: number):Promise<T[]>
-    {
-        return new Promise<T[]>(async (resolve, reject) => {
-            let ret:Promise<T[]>[] = []
+        if (count == null) count = 20
+        return new Promise<Video[]>(async (resolve, reject) => {
+            let ret:Promise<Video[]>[] = []
             for (let i of this.search_adapters) {
-                 ret.push(i[funcname](name, page, count / this.search_adapters.length))
+                 ret.push(i.search_video(name, page, count / this.search_adapters.length))
             }
-            let ans:T[] = []
+            let ans:Video[] = []
             for (let i in ret) {
                 let data = await ret[i]
-                ans.concat(data)
+                ans = ans.concat(data)
             }
             resolve(ans)
         })
     }
+
+    search_album(name: string, page: number, count?: number):Promise<VideoCollection[]> // 专辑
+    {
+        if (count == null) count = 20
+        return new Promise<VideoCollection[]>(async (resolve, reject) => {
+            let ret:Promise<VideoCollection[]>[] = []
+            for (let i of this.search_adapters) {
+                 ret.push(i.search_album(name, page, count / this.search_adapters.length))
+            }
+            let ans:VideoCollection[] = []
+            for (let i in ret) {
+                let data = await ret[i]
+                ans = ans.concat(data)
+            }
+            resolve(ans)
+        })
+    }
+
+    search_show(name: string, page: number, count?: number):Promise<VideoCollection[]> // 节目
+    {
+        if (count == null) count = 20
+        return new Promise<VideoCollection[]>(async (resolve, reject) => {
+            let ret:Promise<VideoCollection[]>[] = []
+            for (let i of this.search_adapters) {
+                 ret.push(i.search_show(name, page, count / this.search_adapters.length))
+            }
+            let ans:VideoCollection[] = []
+            for (let i in ret) {
+                let data = await ret[i]
+                ans = ans.concat(data)
+            }
+            resolve(ans)
+        })
+    }
+    
+    // search_basic<T>(funcname: string, name: string, page: number, count?: number):Promise<T[]>
+    // {
+    //     if (count == null) count = 20
+    //     return new Promise<T[]>(async (resolve, reject) => {
+    //         let ret:Promise<T[]>[] = []
+    //         for (let i of this.search_adapters) {
+    //              ret.push(i[funcname](i,name, page, count / this.search_adapters.length))
+    //         }
+    //         let ans:T[] = []
+    //         for (let i in ret) {
+    //             let data = await ret[i]
+    //             ans.concat(data)
+    //         }
+    //         resolve(ans)
+    //     })
+    // }
 
     get_video(classname: string, page: number, count?: number):Promise<Video[]>
     {

@@ -5,6 +5,7 @@ import {Main} from "./StdLib/solo-ui"
 import {HomePage,FavoritePage,HistoryPage,DownloadPage,SettingsPage,SearchPage,PlayerPage} from "./Page/"
 import {Framework} from "./Component/framework"
 import {App} from './Model/app'
+// require('electron-cookies')
 
 const route = <Route path="/" component={Framework}>
                 <IndexRedirect to="/home" />

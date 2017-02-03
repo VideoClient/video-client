@@ -21,7 +21,7 @@ chai.should();
 chai.use(chaiAsPromised);
 
 describe('AppTest', function () {
-    this.timeout(10000)
+    this.timeout(30000)
     
     beforeEach(() => {
         return app.start()

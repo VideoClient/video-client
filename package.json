@@ -1,12 +1,12 @@
 {
   "name": "video-client",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "description": "一款PC端视频聚合应用，提供国内主流视频站资源。",
   "main": "app/main.js",
   "scripts": {
     "start": "electron-forge start",
     "pretest": "tsc -p .",
-    "test": "nyc mocha built/test",
+    "test": "mocha built/packages/vc-baiduyun-plugin/test",
     "posttest": "nyc report --reporter=json && codecov -f coverage/*.json",
     "package": "electron-forge package",
     "package-all": "electron-forge package -a x64 -p all",
@@ -34,6 +34,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/chai": "^3.4.34",
+    "@types/chai-as-promised": "0.0.29",
     "@types/electron": "^1.4.31",
     "@types/material-ui": "^0.16.48",
     "@types/mocha": "^2.2.38",

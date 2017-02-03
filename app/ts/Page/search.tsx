@@ -5,14 +5,13 @@ const {Box, VBox, Page, ScrollView, Container} = require('react-layout-component
 import {ISearchAdapter} from '../Model/res-adapter'
 import {Video, VideoCollection} from '../Model/resource'
 import {ShowBox} from '../Component/showbox'
-
+import {App} from '../Model'
 
 export class SearchPage extends React.Component<any, any> {
     constructor(props) {
         super(props);
         this.update(props.params.q)
-        let search_adapters: ISearchAdapter[] 
-        this.state = {videos: [], sa: search_adapters}
+        this.state = {videos: []}
     }
 
     componentWillReceiveProps(nextProps) {
@@ -24,7 +23,8 @@ export class SearchPage extends React.Component<any, any> {
     private q: string
     update(q: string) {
         this.q = q
-        this.state.sa[0].search_show(q, 1).then(v => {
+        App.getResourceLoader().search_show(q, 1).then(v => {
+            console.log(v)
             this.setState({videos: v})
         }).catch(reason => console.log(reason))
     }

@@ -69,6 +69,7 @@ export class Plugins {
         let plugin = require(p)(require('./index'))
         console.log(plugin)
         if (plugin['regTab']) App.getHomeTabs().regTab(plugin['regTab'])
+        if (plugin['search_adapter']) App.getResourceLoader().regSearchAdapter(plugin['search_adapter'])
         return plugin
     }
 
