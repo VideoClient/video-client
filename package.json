@@ -1,6 +1,6 @@
 {
   "name": "video-client",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "一款PC端视频聚合应用，提供国内主流视频站资源。",
   "main": "app/main.js",
   "scripts": {

@@ -77,7 +77,7 @@ export class SettingsPage extends React.Component<any, any> {
                 <Card>
                     <CardText>
                         <h1>Video Client 多功能视频客户端</h1>
-                        <h3>软件版本: v0.2.0</h3>
+                        <h3>软件版本: v{process.env.npm_package_version}</h3>
                         <h3>作者: 西风逍遥游 (sunxfancy@gmail.com)</h3>
                     </CardText>
                 </Card>
