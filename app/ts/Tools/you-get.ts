@@ -2,7 +2,7 @@ import {Cmd} from './utils'
 
 export class YouGet {
     private static inst = new YouGet()
-    getInstance() { return YouGet.inst }
+    static get() { return YouGet.inst }
     private cmd_path
 
     async checkTools(path?: string) {

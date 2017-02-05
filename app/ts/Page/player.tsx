@@ -3,7 +3,7 @@ import {Tabs, Tab, AppBar, Card, CardHeader, CardText} from 'material-ui'
 import {Categories, Discovery} from '.'
 const {Box, VBox, Page, Container} = require('react-layout-components')
 import { default as Video, Controls, Play, Mute, Seek, Fullscreen, Time, Overlay } from 'react-html5video';
-
+import {YouGet} from '../Tools/you-get'
 export class PlayerPage extends React.Component<any, any> {
     constructor(props) {
         super(props);
@@ -15,10 +15,12 @@ export class PlayerPage extends React.Component<any, any> {
     update(v) {
         let url = decodeURIComponent(v)
         if (url.startsWith('local')) this.setState({src: url})
-        if (url.endsWith('.mp4') || url.endsWith('webm')) {
+        if (url.endsWith('.mp4') || url.endsWith('.webm')) {
             this.setState({src: url})
         } else {
-            
+            YouGet.get().showJson(url).then((value) => {
+                console.log(value)
+            })
         }
     }
  

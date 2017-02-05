@@ -2,7 +2,7 @@ import {Cmd} from './utils'
 
 export class YoutubeDL {
     private static inst = new YoutubeDL()
-    getInstance() { return YoutubeDL.inst }
+    static get() { return YoutubeDL.inst }
 
     async checkTools(path?: string): Promise<boolean> {
         if (path == null) path = 'youtube-dl'

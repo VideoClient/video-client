@@ -16,6 +16,8 @@ var app = new Application({
             path: electronPath,
             args: [appPath]
         });
+console.log('electron:', electronPath)
+console.log('app:', appPath)
 
 chai.should();
 chai.use(chaiAsPromised);

@@ -16,7 +16,7 @@ export class ShowBox extends React.Component<ShowBoxProps, any> {
         super(props)
     }
     render() {
-        return <Link to={'/detail/'+encodeURIComponent(this.props.videos.url)}  className='show-box'>
+        return <Link to={'/watch/'+encodeURIComponent(this.props.videos.url)}  className='show-box'>
             <img src={this.props.videos.poster} alt={this.props.videos.name}/>
             <h4>{this.props.videos.name}</h4>
         </Link>
