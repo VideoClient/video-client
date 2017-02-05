@@ -106,7 +106,7 @@ function openMainWindow(vv = null) {
     })
 
 
-    appIcon = new Tray(__dirname + '/icon/icon.png');
+    appIcon = new Tray(__dirname + '/icon/smallicon.png');
 
     appIcon.setToolTip('VideoClient v1.0');
     appIcon.setContextMenu(contextMenu);
