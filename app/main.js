@@ -58,7 +58,7 @@ function openMainWindow(vv = null) {
     })
     
 
-    mainWindow = new BrowserWindow({ width: 1024, height: 768, icon: __dirname + '/icon/icon.png' });
+    mainWindow = new BrowserWindow({ width: 1366, height: 768, icon: __dirname + '/icon/icon.png' });
     mainWindow.maximize(); 
     if (vv == null)
         mainWindow.loadURL('file://' + __dirname + '/index.html#/');
@@ -81,9 +81,35 @@ function openMainWindow(vv = null) {
         return false;
     });
 
+    // 对于下载任务, 默认下载到指定位置, TODO: 添加到下载管理器
+    mainWindow.webContents.session.on('will-download', (event, item, wc) => {
+        item.setSavePath(path.join(app.getPath('videos'), 'VideoClient') + '/' + item.getFilename());
+        console.log(path.join(app.getPath('videos'), 'VideoClient') + '/' + item.getFilename());
+        // item.on('updated', (event, state) => {
+        //     if (state === 'interrupted') {
+        //     console.log('Download is interrupted but can be resumed')
+        //     } else if (state === 'progressing') {
+        //     if (item.isPaused()) {
+        //         console.log('Download is paused')
+        //     } else {
+        //         console.log(`Received bytes: ${item.getReceivedBytes()}`)
+        //     }
+        //     }
+        // })
+        // item.once('done', (event, state) => {
+        //     if (state === 'completed') {
+        //     console.log('Download successfully')
+        //     } else {
+        //     console.log(`Download failed: ${state}`)
+        //     }
+        // })
+    })
+
 
     appIcon = new Tray(__dirname + '/icon/icon.png');
 
     appIcon.setToolTip('VideoClient v1.0');
     appIcon.setContextMenu(contextMenu);
 }
+
+

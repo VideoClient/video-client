@@ -16,4 +16,8 @@ export class YouGet {
     async download(path: string) {
         return Cmd.run(this.cmd_path, [path])
     }
+
+    async showJson(path: string) {
+        return Cmd.run(this.cmd_path, [path, '--json'])
+    }
 }

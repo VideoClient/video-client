@@ -2,8 +2,9 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/hnnu3h9va9u9uiik/branch/master?svg=true)](https://ci.appveyor.com/project/sunxfancy/video-client/branch/master)
 [![Gitter](https://badges.gitter.im/VideoClient/video-client.svg)](https://gitter.im/VideoClient/video-client?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-Video Client
-=====================
+
+![logo](app/icon/logo.png)
+
 
 A hackable video aggregator for multi-platform with many plugins.
 
@@ -19,7 +20,7 @@ There are submodules for internal plugins. Please use `--recursive` to get all p
 git clone --recursive https://github.com/VideoClient/video-client.git
 ```
 
-## Building
+## Build
 
 Using `npm` to build this project. 
 
@@ -27,8 +28,29 @@ Using `npm` to build this project.
 npm install
 ```
 
-For all subprojects, we should run `npm install` too.
+For all subprojects in `packages` dir, we should run `npm install` too.
 
 ## Run
 
 Using `npm start` to run the app.
+
+
+## Package
+
+Using `electron-forge` package it:
+
+```sh
+npm run package         # build electron package
+npm run package-all     # build for all platform
+npm run make            # build native installer
+```
+
+
+## Native Installer
+
+Only build for own platform, this system can not cross build. 
+Linux need deb and rpm build tools:
+
+```sh
+sudo apt install fakeroot dpkg rpm
+```

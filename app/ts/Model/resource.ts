@@ -114,6 +114,7 @@ export class Video {
     thumbnail: string
     last_watch: string
     raw: any //原始返回的数据
+    plugin: string // 插件名字, 通过其索引getDetail函数,将raw放到这个函数中,用来获取进一步的详细信息
 }
 
 export class VideoCollection {
@@ -124,6 +125,7 @@ export class VideoCollection {
     last_watch_class: string
     last_watch_number: number
     raw: any //原始返回的数据
+    plugin: string // 将raw放到这个函数中,用来获取进一步的详细信息
     getClassName(): string[] {
         let ret:string[] = []
         for (var i in this.data) {

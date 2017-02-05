@@ -23,10 +23,14 @@ export class SearchPage extends React.Component<any, any> {
     private q: string
     update(q: string) {
         this.q = q
-        App.getResourceLoader().search_show(q, 1).then(v => {
-            console.log(v)
-            this.setState({videos: v})
-        }).catch(reason => console.log(reason))
+        App.getCache().loadList(q).then((v) => this.setState({videos: v}))
+        .catch(e => {
+            App.getResourceLoader().search_show(q, 1).then(v => {
+                console.log(v)
+                this.setState({videos: v})
+                App.getCache().saveList(q, v)
+            }).catch(reason => console.log(reason))
+        })
     }
     
 
