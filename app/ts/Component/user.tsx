@@ -1,11 +1,24 @@
 import * as React from 'react'
-import { List, ListItem, Divider, Drawer, Paper, FlatButton } from 'material-ui'
-import { NavigationFullscreen, ImagePhotoCamera, NavigationFullscreenExit, ImageBrightness2, NotificationSync, 
-    NavigationChevronLeft, NavigationChevronRight } from 'material-ui/svg-icons';
+import { List, ListItem, Divider, Drawer, Paper, IconButton } from 'material-ui'
+import { FileFolderOpen, NavigationFullscreen, ImagePhotoCamera, NavigationFullscreenExit, ImageBrightness2, NotificationSync, 
+    NavigationChevronLeft, NavigationChevronRight, FileCloud } from 'material-ui/svg-icons';
 const {Box, VBox, Page, Container} = require('react-layout-components')
-
+import {remote} from 'electron'
+import {App} from '../Model/app'
 export class User extends React.Component<any, any> {
-    static btn_style = {minWidth: '36px'}
+    constructor(props) {
+        super(props)
+    }
+    open_file() {
+        remote.dialog.showOpenDialog({title: '播放本地视频', properties: ['openFile']}, (files) => {
+            for (let f of files) {
+                let url = 'local://' + f
+                console.log('goto: ', url)
+                App.goto('/watch/'+encodeURIComponent(url))
+            }
+        })
+    }
+
     render() {
         return <VBox>
             <VBox className='left-menu-box' center>
@@ -15,11 +28,26 @@ export class User extends React.Component<any, any> {
                 <h2>西风逍遥游</h2>
             </VBox>
             <Box className='left-menu-toolbar' center>
-                <FlatButton style={User.btn_style} icon={<NavigationFullscreen/>}/>
-                <FlatButton style={User.btn_style} icon={<ImagePhotoCamera/>}/>
-                <FlatButton style={User.btn_style} icon={<ImageBrightness2/>}/>
-                <FlatButton style={User.btn_style} icon={<NotificationSync/>}/>
+                <IconButton tooltip='播放本地视频' iconStyle={styles.smallIcon} style={styles.small} onClick={this.open_file}><FileFolderOpen/></IconButton>
+                <IconButton tooltip='播放网络视频' iconStyle={styles.smallIcon} style={styles.small} onClick={this.props.open_dialog}><FileCloud/></IconButton>
+                <IconButton tooltip='全屏' iconStyle={styles.smallIcon} style={styles.small} ><NavigationFullscreen/></IconButton>
+                <IconButton tooltip='截图' iconStyle={styles.smallIcon} style={styles.small} ><ImagePhotoCamera/></IconButton>
+                <IconButton tooltip='夜间模式' iconStyle={styles.smallIcon} style={styles.small} ><ImageBrightness2/></IconButton>
+                <IconButton tooltip='立即获取最新数据' iconStyle={styles.smallIcon} style={styles.small} ><NotificationSync/></IconButton>
             </Box>
         </VBox>
     }
+
 }
+
+const styles = {
+  smallIcon: {
+    width: 28,
+    height: 28,
+  },
+  small: {
+    width: 36,
+    height: 36,
+    padding: 4,
+  },
+};

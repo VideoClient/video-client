@@ -5,6 +5,10 @@ export class YouGet {
     static get() { return YouGet.inst }
     private cmd_path
 
+    constructor() {
+        this.checkTools()
+    }
+
     async checkTools(path?: string) {
         if (path == null) path = 'you-get'
         this.cmd_path = path
@@ -18,6 +22,6 @@ export class YouGet {
     }
 
     async showJson(path: string) {
-        return Cmd.run(this.cmd_path, [path, '--json'])
+        return Cmd.run(this.cmd_path, ['--url','--format=mp4', path])
     }
 }

@@ -7,6 +7,10 @@ import {Framework} from "./Component/framework"
 import {App} from './Model/app'
 // require('electron-cookies')
 
+import {YouGet} from './Tools/you-get'
+
+YouGet.get().checkTools().then(v => console.log('check tools:', v))
+
 const route = <Route path="/" component={Framework}>
                 <IndexRedirect to="/home" />
                 <Route path="home" component={HomePage}>

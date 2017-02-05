@@ -43,13 +43,16 @@ export class Cache {
     }
 
     async loadList(key: string) {
-        return new Promise<Video | VideoCollection>((resolve, reject) => {
+        return new Promise<Video[] | VideoCollection[]>((resolve, reject) => {
             this.mdb.findOne({key: key}, (err, doc:any) => {
                 if (err) return reject(err)
-                this.db.find({ url: { $in: doc.index }}, function (err, docs) {
-                    if (err) return reject(err)
-                    resolve(docs)
-                });
+                if (doc) 
+                    this.db.find({ url: { $in: doc.index }}, function (err, docs) {
+                        if (err) return reject(err)
+                        resolve(docs)
+                    });
+                else
+                    resolve(null)
             })
         })
     }

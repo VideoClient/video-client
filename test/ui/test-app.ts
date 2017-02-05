@@ -5,13 +5,13 @@ const chaiAsPromised = require('chai-as-promised');
 import path = require('path');
 const Application = require('spectron').Application
 
-var electronPath = path.join(__dirname, '..', '..', 'node_modules', '.bin', 'electron');
+var electronPath = path.join(__dirname, '..', '..', '..', 'node_modules', '.bin', 'electron');
 
 if (process.platform === 'win32') {
     electronPath += '.cmd';
 }
 
-var appPath = path.join(__dirname, '..', '..');
+var appPath = path.join(__dirname, '..', '..', '..');
 var app = new Application({
             path: electronPath,
             args: [appPath]
