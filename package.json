@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron-forge start",
     "pretest": "tsc -p .",
-    "test": "nyc mocha built/test",
+    "test": "mocha built/test",
     "posttest": "nyc report --reporter=json && codecov -f coverage/*.json",
     "package": "electron-forge package",
     "package-all": "electron-forge package -a x64 -p all",
