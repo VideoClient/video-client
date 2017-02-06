@@ -12,10 +12,7 @@ if (process.platform === 'win32') {
 }
 
 var appPath = path.join(__dirname, '..', '..', '..');
-var app = new Application({
-            path: electronPath,
-            args: [appPath]
-        });
+var app
 console.log('electron:', electronPath)
 console.log('app:', appPath)
 
@@ -26,6 +23,10 @@ describe('AppTest', function () {
     this.timeout(30000)
     
     beforeEach(() => {
+        app = new Application({
+            path: electronPath,
+            args: [appPath]
+        });
         return app.start()
     })
 
@@ -34,11 +35,7 @@ describe('AppTest', function () {
             return app.stop()
         }
     })
-    it('shows an initial window', function () {
-        return app.client.getWindowCount().then(function (count) {
-            count.should.eq(2)
-        })
-    })
+
     it('opens a window', function () {
         return app.client.waitUntilWindowLoaded()
         .getWindowCount().should.eventually.eq(2);
