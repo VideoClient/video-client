@@ -1,6 +1,11 @@
 {
-  "extends": "tslint:latest",
+  "extends": ["tslint:latest", "tslint-react"],
   "rules": {
+    "jsx-no-lambda": true,
+    "jsx-alignment": true,
+    "jsx-wrap-multiline": true,
+    "jsx-no-string-ref": true,
+
     "indent": [true, "spaces"],
     "quotemark": [true, "single"],
     "object-literal-sort-keys": false,
