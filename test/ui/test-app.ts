@@ -1,7 +1,7 @@
 import 'mocha'
 import * as chai from 'chai'
 const expect = chai.expect
-const chaiAsPromised = require('chai-as-promised');
+import chaiAsPromised = require('chai-as-promised');
 import path = require('path');
 const Application = require('spectron').Application
 
@@ -37,8 +37,7 @@ describe('AppTest', function () {
     })
 
     it('opens a window', function () {
-        return app.client.waitUntilWindowLoaded()
-        .getWindowCount().should.eventually.eq(1);
+        return app.client.getWindowCount().should.eventually.gt(0)
     });
 
     it('tests the title', function () {
