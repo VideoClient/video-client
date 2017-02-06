@@ -4,7 +4,7 @@ os:
 - linux
 - osx
 dist: trusty
-sudo: false
+sudo: true
 git:
   depth: 3
 addons:
@@ -17,6 +17,6 @@ cache:
 install:
 - npm install
 script:
-- npm test
+- ./script/travis-test.sh
 after_script:
 - if [ ${TRAVIS_TAG} ]; then npm run publish; fi
