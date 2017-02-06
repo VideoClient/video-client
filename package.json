@@ -79,8 +79,7 @@
       "make_targets": {
         "win32": [
           "zip",
-          "squirrel",
-          "appx"
+          "squirrel"
         ],
         "darwin": [
           "zip",
@@ -99,8 +98,8 @@
         ]
       },
       "electronWinstallerConfig": {
-        "iconUrl": "app/icon/icon.ico",
-        "setupIcon": "app/icon/icon.ico"
+        "iconUrl": "https://github.com/VideoClient/video-client/raw/master/app/icon/icon.ico",
+        "setupIcon": "https://github.com/VideoClient/video-client/raw/master/app/icon/icon.ico"
       },
       "electronInstallerDebian": {
         "icon": "app/icon/icon.png",
