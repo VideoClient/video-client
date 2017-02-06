@@ -38,7 +38,7 @@ describe('AppTest', function () {
 
     it('opens a window', function () {
         return app.client.waitUntilWindowLoaded()
-        .getWindowCount().should.eventually.eq(2);
+        .getWindowCount().should.eventually.eq(1);
     });
 
     it('tests the title', function () {

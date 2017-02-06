@@ -17,6 +17,6 @@ cache:
 install:
 - npm install
 script:
-- ./script/travis-test.sh
+- bash ./scripts/travis-test.sh
 after_script:
 - if [ ${TRAVIS_TAG} ]; then npm run publish; fi
