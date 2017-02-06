@@ -1,6 +1,9 @@
+[![GitHub version](https://badge.fury.io/gh/VideoClient%2Fvideo-client.svg)](https://badge.fury.io/gh/VideoClient%2Fvideo-client)
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 [![Build Status](https://travis-ci.org/VideoClient/video-client.svg?branch=master)](https://travis-ci.org/VideoClient/video-client)
 [![Build status](https://ci.appveyor.com/api/projects/status/hnnu3h9va9u9uiik/branch/master?svg=true)](https://ci.appveyor.com/project/sunxfancy/video-client/branch/master)
 [![Gitter](https://badges.gitter.im/VideoClient/video-client.svg)](https://gitter.im/VideoClient/video-client?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 
 
 ![logo](app/icon/logo.png)
