@@ -18,6 +18,7 @@ engines:
 ratings:
   paths:
     - "**.ts"
+    - "**.tsx"
     - "**.inc"
     - "**.js"
     - "**.jsx"
