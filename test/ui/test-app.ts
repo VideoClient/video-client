@@ -22,15 +22,15 @@ chai.use(chaiAsPromised);
 describe('AppTest', function () {
     this.timeout(30000)
     
-    beforeEach(() => {
+    before(() => {
         app = new Application({
             path: electronPath,
             args: [appPath]
         });
-        return app.start()
+        return app.start().catch(err => console.log(err))
     })
 
-    afterEach(() => {
+    after(() => {
         if (app && app.isRunning()) {
             return app.stop()
         }
