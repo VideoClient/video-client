@@ -23,7 +23,7 @@ test_script:
   - npm test
 
 after_test:
-  - ps: if ($APPVEYOR_REPO_TAG) { npm run publish }
+  - ps: if ($env:APPVEYOR_REPO_TAG) { npm run publish }
 
 # Don't actually build.
 build: off
