@@ -50,7 +50,7 @@
     "dts-generator": "^2.0.0",
     "electron-forge": "^2.7.2",
     "electron-mocha": "^3.3.0",
-    "electron-prebuilt-compile": "1.4.15",
+    "electron-prebuilt-compile": "1.4.13",
     "electron-react-devtools": "^0.4.0",
     "mocha": "^3.2.0",
     "nyc": "^10.1.0",
@@ -72,7 +72,17 @@
     "react-swipeable-views": "^0.10.3",
     "react-swipeable-views-utils": "^0.10.1",
     "react-tap-event-plugin": "^2.0.1",
-    "request": "^2.79.0"
+    "request": "^2.79.0",
+    "wcjs-player": "^6.0.1",
+    "webchimera.js": "^0.2.7"
+  },
+  "optionalDependencies": {
+    "wcjs-prebuilt": "^0.2.7"
+  },
+  "wcjs-prebuilt": {
+    "runtime": "electron",
+    "runtimeVersion": "v1.4.13",
+    "version": "v0.2.7"
   },
   "config": {
     "forge": {
