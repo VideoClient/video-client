@@ -73,11 +73,10 @@
     "react-swipeable-views-utils": "^0.10.1",
     "react-tap-event-plugin": "^2.0.1",
     "request": "^2.79.0",
-    "wcjs-player": "^6.0.1",
-    "webchimera.js": "^0.2.7"
+    "wcjs-player": "^6.0.1"
   },
   "optionalDependencies": {
-    "wcjs-prebuilt": "^0.2.7"
+    "wcjs-prebuilt": "^3.0.0"
   },
   "wcjs-prebuilt": {
     "runtime": "electron",

@@ -39,7 +39,7 @@ document.body.ondrop = e => {
   let files = e.dataTransfer.files
   if (files.length > 0) {
     console.log('File(s) you dragged here: ', files[0].path)
-    App.goto('/watch/' + encodeURIComponent('local://'+files[0].path))
+    App.goto('/watch/' + encodeURIComponent('file://'+files[0].path))
 	}
 	return false
 }
