@@ -1,9 +1,9 @@
 import React = require('react')
-import {Tabs, Tab, AppBar, Card, CardHeader, CardText,FlatButton,TextField,SelectField,MenuItem} from 'material-ui'
+import {Card, CardHeader, CardText,FlatButton,TextField,SelectField,MenuItem} from 'material-ui'
 import {Categories, Discovery} from '.'
 const {Box, VBox, Page, Container} = require('react-layout-components')
 import {remote} from 'electron';
-import {App} from '../Model/app'
+import {App, Plugin} from '../Model'
 
 export class SettingsPage extends React.Component<any, any> {
     constructor(props) {
@@ -19,6 +19,23 @@ export class SettingsPage extends React.Component<any, any> {
     
     getDefaultPath():string {
         return App.getConfig().getDefaultVideoPath();
+    }
+
+    renderPlugins() {
+        let ps = App.getPlugins().plugins
+        console.log('ps', ps)
+        let ret = []
+        for (let i in ps) {
+            let p:Plugin = ps[i]
+            if (p!=null)
+            ret.push(
+                <div key={i}> 
+                    <h2>{i}</h2>
+                    <h3>{p.version}</h3>
+                </div>
+            )
+        }
+        return ret
     }
 
     render() {
@@ -64,9 +81,9 @@ export class SettingsPage extends React.Component<any, any> {
                         actAsExpander={true}
                         showExpandableButton={true} />
                     <CardText>
-                        <Box>
-
-                        </Box>
+                        <VBox>
+                            {this.renderPlugins()}
+                        </VBox>
                     </CardText>
                     <CardText expandable={true}>
                         

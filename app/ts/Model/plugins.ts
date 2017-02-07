@@ -22,7 +22,6 @@ export class Plugins {
     async load() {
         return new Promise((resolve, reject) => {
             this.path = App.getConfig().getPluginPaths()
-            this.plugins = new Map<string, Plugin>()
             console.log(this.path)
             for (let i of this.path) {
                 fs.readdir(i, (err, files) => {
@@ -34,6 +33,7 @@ export class Plugins {
                                     .then(v=> {
                                         let plugin = this.loadPlugin(subdir)
                                         plugin.__package = v
+                                        if (plugin.version == null) plugin.version = v.version
                                         this.plugins[v.name] = plugin
                                         console.log(plugin)
                                     })
@@ -82,6 +82,6 @@ export class Plugins {
     }
 
     index: any
-    plugins: Map<string, Plugin>
+    plugins: any = {}
     path: string[]
 }

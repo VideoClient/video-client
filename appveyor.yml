@@ -13,7 +13,8 @@ install:
   - ps: Install-Product node $env:nodejs_version
   # install modules
   - npm install
-
+  - npm run make
+  
 # Post-install test scripts.
 test_script:
   # Output useful info for debugging.
@@ -23,7 +24,7 @@ test_script:
   - npm test
 
 after_test:
-  - ps: if ($env:APPVEYOR_REPO_TAG) { npm run publish }
+  - ps: if ($env:APPVEYOR_REPO_TAG -eq "true") { npm run publish }
 
 # Don't actually build.
 build: off
