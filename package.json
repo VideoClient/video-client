@@ -98,8 +98,8 @@
         ]
       },
       "electronWinstallerConfig": {
-        "iconUrl": "https://github.com/VideoClient/video-client/raw/master/app/icon/icon.ico",
-        "setupIcon": "https://github.com/VideoClient/video-client/raw/master/app/icon/icon.ico"
+        "iconUrl": "https://raw.githubusercontent.com/VideoClient/video-client/master/app/icon/icon.ico",
+        "setupIcon": "https://raw.githubusercontent.com/VideoClient/video-client/master/app/icon/icon.ico"
       },
       "electronInstallerDebian": {
         "icon": "app/icon/icon.png",
