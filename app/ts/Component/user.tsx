@@ -19,6 +19,11 @@ export class User extends React.Component<any, any> {
         })
     }
 
+    fullscreen() {
+        let w = remote.getCurrentWindow()
+        w.setFullScreen(!w.isFullScreen())
+    }
+
     render() {
         return <VBox>
             <VBox className='left-menu-box' center>
@@ -30,7 +35,7 @@ export class User extends React.Component<any, any> {
             <Box className='left-menu-toolbar' center>
                 <IconButton tooltip='播放本地视频' iconStyle={styles.smallIcon} style={styles.small} onClick={this.open_file}><FileFolderOpen/></IconButton>
                 <IconButton tooltip='播放网络视频' iconStyle={styles.smallIcon} style={styles.small} onClick={this.props.open_dialog}><FileCloud/></IconButton>
-                <IconButton tooltip='全屏' iconStyle={styles.smallIcon} style={styles.small} ><NavigationFullscreen/></IconButton>
+                <IconButton tooltip='全屏' iconStyle={styles.smallIcon} style={styles.small} onClick={this.fullscreen} ><NavigationFullscreen/></IconButton>
                 <IconButton tooltip='截图' iconStyle={styles.smallIcon} style={styles.small} ><ImagePhotoCamera/></IconButton>
                 <IconButton tooltip='夜间模式' iconStyle={styles.smallIcon} style={styles.small} ><ImageBrightness2/></IconButton>
                 <IconButton tooltip='立即获取最新数据' iconStyle={styles.smallIcon} style={styles.small} ><NotificationSync/></IconButton>

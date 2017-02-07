@@ -52,14 +52,24 @@ export class PlayerPage extends React.Component<any, PlayerPageState> {
                 //     this.setState({paths: paths, src: paths[0]})
                 // }
             })
-            return {url: ''}
+            return {src: ''}
+        }
+    }
+
+    screenshot() {
+        let canvas = this.refs['cav'] as HTMLCanvasElement
+        let ctx = canvas.getContext('2d');
+        if (this.refs['video'] != null) {
+            let video = (this.refs['video'] as Video).videoEl as HTMLVideoElement
+            ctx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight)
+            console.log(canvas)
         }
     }
  
     render() {
         let video
         if (this.state.src != null) 
-            video = <Video controls autoPlay style={{height:'auto', width: '100%'}} >
+            video = <Video ref='video' controls autoPlay style={{height:'auto', width: '100%'}} >
                 <source src={this.state.src} />
                 <Overlay />
                 <Controls>
@@ -72,6 +82,7 @@ export class PlayerPage extends React.Component<any, PlayerPageState> {
             </Video>
         return <Box fit>
             { video }
+            <canvas ref='cav' style={{display: 'none'}} />
         </Box>
     }
 }
