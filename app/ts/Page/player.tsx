@@ -5,7 +5,6 @@ const {Box, VBox, Page, Container} = require('react-layout-components')
 import { default as Video, Controls, Play, Mute, Seek, Fullscreen, Time, Overlay } from 'react-html5video';
 import {YouGet} from '../Tools/you-get'
 import path = require('path')
-const wjs = require("wcjs-player");
 
 export interface PlayerPageState {
     title: string
@@ -44,51 +43,39 @@ export class PlayerPage extends React.Component<any, PlayerPageState> {
                 console.log(value)
                 let urls = value.split('\n')
                 this.setState({urls: urls, src: urls[0]})
-                // if (data.streams['webm'] != null) {
-                    
-                // } else 
-                // if (data.streams['mp4'] != null) {
-                //     let d = data.streams.mp4
-                //     let piece = d.pieces[0]
-                //     let paths = []
-                //     for (let seg of piece.segs) {
-                //         paths.push(seg.path)
-                //     }
-                //     this.setState({paths: paths, src: paths[0]})
-                // }
             })
             return {src: ''}
         }
     }
 
     // screenshot for html5video
-    // screenshot() {
-    //     let canvas = this.refs['cav'] as HTMLCanvasElement
-    //     let ctx = canvas.getContext('2d');
-    //     if (this.refs['video'] != null) {
-    //         let video = (this.refs['video'] as Video).videoEl as HTMLVideoElement
-    //         ctx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight)
-    //         console.log(canvas)
-    //     }
-    // }
- 
-    componentDidMount() {
-        var prebuilt
-        if (process.platform == 'linux') 
-            prebuilt = require(path.join(__dirname, '..', '..', '..', 'WCjs', 'WebChimera.js.node'));
-        else prebuilt = require('wcjs-prebuilt')
-        console.log(prebuilt)
-        this.player = new wjs("#player").addPlayer({
-            autoplay: true,
-            wcjs: prebuilt
-        });
-        console.log(this.state.src)
-        this.player.addPlaylist(this.state.src);
+    screenshot() {
+        let canvas = this.refs['cav'] as HTMLCanvasElement
+        let ctx = canvas.getContext('2d');
+        if (this.refs['video'] != null) {
+            let video = (this.refs['video'] as Video).videoEl as HTMLVideoElement
+            ctx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight)
+            console.log(canvas)
+        }
     }
+ 
+    // componentDidMount() {
+    //     var prebuilt
+    //     if (process.platform == 'linux') 
+    //         prebuilt = require(path.join(__dirname, '..', '..', '..', 'WCjs', 'WebChimera.js.node'));
+    //     else prebuilt = require('wcjs-prebuilt')
+    //     console.log(prebuilt)
+    //     this.player = new wjs("#player").addPlayer({
+    //         autoplay: true,
+    //         wcjs: prebuilt
+    //     });
+    //     console.log(this.state.src)
+    //     this.player.addPlaylist(this.state.src);
+    // }
 
     render() {
         // default Html5 player
-        /*let video
+        let video
         if (this.state.src != null) 
             video = <Video ref='video' controls autoPlay style={{height:'auto', width: '100%'}} >
                 <source src={this.state.src} />
@@ -100,11 +87,10 @@ export class PlayerPage extends React.Component<any, PlayerPageState> {
                     <Mute />
                     <Fullscreen />
                 </Controls>
-            </Video>*/
+            </Video>
 
         return <Box fit>
-            <div id="player"></div>
-            <canvas ref='cav' style={{display: 'none'}} />
+            {video}
         </Box>
     }
 }
