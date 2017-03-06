@@ -2,7 +2,7 @@ import React = require('react')
 import {Route,Router,IndexRedirect} from 'react-router'
 import {Main} from "./StdLib/solo-ui"
 // import {redux_provider_gen} from "./StdLib/solo-redux"
-import {HomePage,FavoritePage,HistoryPage,DownloadPage,SettingsPage,SearchPage,PlayerPage,DetailPage} from "./Page/"
+import {HomePage,FavoritePage,HistoryPage,DownloadPage,SettingsPage,SearchPage,PlayerPage,DetailPage,SubCategories} from "./Page/"
 import {Framework} from "./Component/framework"
 import {App} from './Model/app'
 // require('electron-cookies')
@@ -20,6 +20,7 @@ const route = <Route path="/" component={Framework}>
                 <Route path="history" component={HistoryPage}/>
                 <Route path="download" component={DownloadPage}/>
                 <Route path="settings" component={SettingsPage}/>
+                <Route path="subcategories/*" component={SubCategories}/>
                 <Route path="search/:q" component={SearchPage}/>
                 <Route path="detail/:url" component={DetailPage} />
                 <Route path="watch/:v" component={PlayerPage} 

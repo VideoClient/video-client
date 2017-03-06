@@ -1,6 +1,6 @@
 import React = require('react')
 import {Tabs, Tab, AppBar, Card, CardHeader, CardText} from 'material-ui'
-import {Categories, Discovery} from '.'
+import {Categories, DiscoveryPage} from '.'
 const {Box, VBox, Page, ScrollView, Container} = require('react-layout-components')
 import {ISearchAdapter} from '../Model/res-adapter'
 import {Video, VideoCollection} from '../Model/resource'

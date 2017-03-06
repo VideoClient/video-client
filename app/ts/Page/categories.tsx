@@ -1,7 +1,7 @@
 import React = require('react')
 import {FlatButton, Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui'
 const {Box, VBox, Page, Container, ScrollView} = require('react-layout-components')
-
+import {Link} from 'react-router'
 
 export class Category extends React.Component<any, any> {
     // 传入一个名字作为参数
@@ -13,20 +13,20 @@ export class Category extends React.Component<any, any> {
 
     render() {
         let arr = Category.path_map[this.props.kind]
-        return <a className='category-box' href={arr[0]}>
+        return <Link className='category-box' to={arr[0]}>
             <img src={arr[1]} alt={this.props.kind}/>
             <h4>{this.props.kind}</h4>
-        </a>
+        </Link>
     }
 
     public static path_map = {
-        '电影': ['#/home/movie', 'img/film.png'],
-        '连续剧': ['#/home/series', 'img/series.svg'],
-        '科技': ['#/home/', 'img/science.png'],
-        '纪录片': ['#/home/', 'img/book.svg'],
-        '教育': ['#/home/', 'img/education.png'],
-        '娱乐': ['#/home/', 'img/game.png'],
-        '动漫': ['#/home/animate', 'img/animate.png'],
+        '电影': ['/home/movie', 'img/film.png'],
+        '连续剧': ['/home/series', 'img/series.svg'],
+        '科技': ['/home/', 'img/science.png'],
+        '纪录片': ['/home/', 'img/book.svg'],
+        '教育': ['/home/', 'img/education.png'],
+        '娱乐': ['/home/', 'img/game.png'],
+        '动漫': ['/home/animate', 'img/animate.png'],
     }
     public static main_categories = ['电影', '连续剧', '动漫', '纪录片']
 }
@@ -50,7 +50,7 @@ export class Categories extends React.Component<any, any> {
             others.push(
                 <div key={"other"+(i++)} className='content-card'>
                     <Card>
-                        <CardHeader title={key}/>
+                        <CardHeader title={key+"精选"}/>
                         <CardText >
                             
                         </CardText>
@@ -75,15 +75,6 @@ export class Categories extends React.Component<any, any> {
                         <Container>
                             {extend_cates}
                         </Container>
-                    </CardText>
-                </Card> 
-            </div>
-
-            <div className='content-card'>
-                <Card>
-                    <CardHeader title="电影精选"/>
-                    <CardText >
-                   
                     </CardText>
                 </Card> 
             </div>
@@ -114,11 +105,8 @@ export class SubCategories extends React.Component<any, any> {
             others.push(<div key={"other"+i} className='content-card'>
                 <Card>
                     <CardHeader title="电影精选"/>
-                    <CardText >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                        Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                        Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                    <CardText>
+                        
                     </CardText>
                 </Card> 
             </div>)
@@ -128,7 +116,7 @@ export class SubCategories extends React.Component<any, any> {
             <div className='content-card'>
                 <Card>
                     <CardHeader
-                        title="视频分类大全"
+                        title="子类别"
                         actAsExpander={true}
                         showExpandableButton={true}/>
                     <CardText>
@@ -140,18 +128,6 @@ export class SubCategories extends React.Component<any, any> {
                         <Container>
                             {extend_cates}
                         </Container>
-                    </CardText>
-                </Card> 
-            </div>
-
-            <div className='content-card'>
-                <Card>
-                    <CardHeader title="电影精选"/>
-                    <CardText >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                        Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                        Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
                     </CardText>
                 </Card> 
             </div>

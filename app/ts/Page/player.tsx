@@ -1,6 +1,6 @@
 import React = require('react')
 import {Tabs, Tab, AppBar, Card, CardHeader, CardText} from 'material-ui'
-import {Categories, Discovery} from '.'
+import {Categories, DiscoveryPage} from '.'
 const {Box, VBox, Page, Container} = require('react-layout-components')
 import { default as Video, Controls, Play, Mute, Seek, Fullscreen, Time, Overlay } from 'react-html5video';
 import {YouGet} from '../Tools/you-get'
@@ -24,7 +24,7 @@ export class PlayerPage extends React.Component<any, PlayerPageState> {
     private player:any
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.params.v != this.state.src) {
+        if (decodeURIComponent(nextProps.params.v) != this.state.src) {
             this.setState(this.update(nextProps.params.v))
         }
     }
