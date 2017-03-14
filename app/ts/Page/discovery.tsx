@@ -2,7 +2,7 @@ import React = require('react')
 import {FlatButton, Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui'
 const {Box, VBox, Page, Container, ScrollView} = require('react-layout-components')
 
-export class Discovery extends React.Component<any, any> {
+export class DiscoveryPage extends React.Component<any, any> {
     render() {
         return <div style={{width: '100%'}}>
             <h1>发现新大陆</h1>

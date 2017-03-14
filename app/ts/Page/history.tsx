@@ -1,6 +1,6 @@
 import React = require('react')
 import {Tabs, Tab, AppBar, Card, CardHeader, CardText} from 'material-ui'
-import {Categories, Discovery} from '.'
+import {Categories, DiscoveryPage} from '.'
 const {Box, VBox, Page, Container} = require('react-layout-components')
 
 

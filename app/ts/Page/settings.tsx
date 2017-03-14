@@ -1,6 +1,6 @@
 import React = require('react')
 import {Card, CardHeader, CardText,FlatButton,TextField,SelectField,MenuItem} from 'material-ui'
-import {Categories, Discovery} from '.'
+import {Categories, DiscoveryPage} from '.'
 const {Box, VBox, Page, Container} = require('react-layout-components')
 import {remote} from 'electron';
 import {App, Plugin} from '../Model'

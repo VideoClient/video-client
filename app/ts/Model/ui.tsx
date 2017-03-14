@@ -1,5 +1,5 @@
 import React = require('react')
-import {Categories, Discovery} from '../Page'
+import {Categories, SubCategories, DiscoveryPage} from '../Page'
 
 export interface HomeTab {
     name: string
@@ -42,12 +42,12 @@ export class HomePageTabs {
     getDefaultTabs() {
         return [
             {showName:"分类", name:"categories", com: <Categories key='1' />, defaultKey: 1},
-            {showName:"发现", name:"discovery", com: <Discovery key='2' />, defaultKey: 2},
-            {showName:"电影", name:"movie", com: <Discovery key='3' />, defaultKey: 3},
-            {showName:"电视剧", name:"series", com: <Discovery key='4' />, defaultKey: 4},
-            {showName:"动漫", name:"animate", com: <Discovery key='5' />, defaultKey: 5},
-            {showName:"电视", name:"tv", com: <Discovery key='6' />, defaultKey: 6},
-            {showName:"直播", name:"online", com: <Discovery key='7' />, defaultKey: 7}
+            {showName:"发现", name:"discovery", com: <DiscoveryPage key='2' />, defaultKey: 2},
+            {showName:"电影", name:"movie", com: <SubCategories key='3' />, defaultKey: 3},
+            {showName:"电视剧", name:"series", com: <DiscoveryPage key='4' />, defaultKey: 4},
+            {showName:"动漫", name:"animate", com: <DiscoveryPage key='5' />, defaultKey: 5},
+            {showName:"电视", name:"tv", com: <DiscoveryPage key='6' />, defaultKey: 6},
+            {showName:"直播", name:"online", com: <DiscoveryPage key='7' />, defaultKey: 7}
         ]
     }
 }

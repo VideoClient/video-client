@@ -22,8 +22,8 @@ export class DetailPage extends React.Component<IDetailPageProps, IDetailPageSta
     }
 
     componentWillUpdate(lastProp, nextProp) {
-        let url = decodeURIComponent(nextProp.url)
-        if (nextProp.url && this.state.videos && url != this.state.videos.url) {
+        let url = decodeURIComponent(nextProp.params.url)
+        if (nextProp.params.url && this.state.videos && url != this.state.videos.url) {
             this.update(url)
         }
     }
