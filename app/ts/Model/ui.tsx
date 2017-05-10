@@ -41,7 +41,7 @@ export class HomePageTabs {
     }
     getDefaultTabs() {
         return [
-            {showName:"分类", name:"categories", com: <Categories key='1' />, defaultKey: 1},
+            {showName:"分类", name:"categories", com: <Categories key='1' style={{height: '100%'}} />, defaultKey: 1},
             {showName:"发现", name:"discovery", com: <DiscoveryPage key='2' />, defaultKey: 2},
             {showName:"电影", name:"movie", com: <SubCategories key='3' />, defaultKey: 3},
             {showName:"电视剧", name:"series", com: <DiscoveryPage key='4' />, defaultKey: 4},

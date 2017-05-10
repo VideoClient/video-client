@@ -74,14 +74,14 @@ export class HomePage extends React.Component<IHomePageProps, IHomePageStates> {
     }
 
     render() {
-        return <Container><VBox>
+        return <Container style={{width: '100%'}}><VBox style={{width: '100%', height: '100%'}}>
             <Box flex='none'>
                 <Tabs ref='tabs' style={{width: '100%'}} onChange={this.handleChange} value={this.state.slideIndex}>
                     {this.tabsRenderer()}
                 </Tabs>
             </Box>
-            <Box flex='1' fit>
-                <SwipeableViews style={{height: '100%'}} index={this.state.slideIndex} onChangeIndex={this.handleChange} >
+            <Box flex='1' fit style={{height: '100%'}}>
+                <SwipeableViews style={{height: '100%', width: '100%'}} index={this.state.slideIndex} onChangeIndex={this.handleChange} >
                     {this.state.tabs.getAllComs()}
                 </SwipeableViews>
             </Box>

@@ -112,7 +112,7 @@ export class SubCategories extends React.Component<any, any> {
             </div>)
         }
 
-        return <ScrollView fit>
+        return <ScrollView fit style={{width: "100%"}}>
             <div className='content-card'>
                 <Card>
                     <CardHeader

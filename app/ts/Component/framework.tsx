@@ -89,7 +89,7 @@ export class Framework extends React.Component<any, any> {
                     <Box flex='none' style={this.state.hidebar ? Framework.hide_appbar : null}>
                         <AppBar title='主页' iconElementLeft={this.state.icon} onLeftIconButtonTouchTap={this.onMenuBtnClick.bind(this)} iconElementRight={this.search_box} />
                     </Box>
-                    <Box flex='1' style={{height: '100%'}}>
+                    <Box flex='1' style={{width: '100%',height: '100%'}}>
                         {this.props.children}
                     </Box>
                 </VBox>
