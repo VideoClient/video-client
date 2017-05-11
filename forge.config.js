@@ -16,7 +16,6 @@ module.exports = {
     },
     "electronPackagerConfig": {
         "ignore": [
-            "node_modules",
             "built",
             "coverage",
             "scripts",
@@ -24,7 +23,9 @@ module.exports = {
             ".nyc_output",
             ".vscode",
             "python",
-            "pytools"
+            "pytools",
+            "[a-z_\-]*.yml",
+            "[a-z_\-]*.log"
         ]
     },
     "electronWinstallerConfig": {

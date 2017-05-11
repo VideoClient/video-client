@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "outDir": "built/",
+        "lib": ["dom", "es2017"],
+        "jsx": "react",
+        "noImplicitAny": false,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "declaration": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    },
+    "compileOnSave": false
+}

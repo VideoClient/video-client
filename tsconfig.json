@@ -9,15 +9,9 @@
         "removeComments": true,
         "preserveConstEnums": true,
         "sourceMap": true,
-        "declaration": true,
+        "declaration": false,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true
     },
-    "exclude": [
-        ".vscode",
-        "built/",
-        "node_modules/",
-        "out/"
-    ],
     "compileOnSave": false
 }
