@@ -74,60 +74,6 @@
     "youku-client": "^0.1.2"
   },
   "config": {
-    "forge": {
-      "make_targets": {
-        "win32": [
-          "zip",
-          "squirrel"
-        ],
-        "darwin": [
-          "zip",
-          "dmg"
-        ],
-        "linux": [
-          "zip",
-          "deb",
-          "rpm"
-        ]
-      },
-      "electronPackagerConfig": {
-        "ignore": [
-          "built",
-          "coverage",
-          "scripts",
-          "test",
-          ".nyc_output",
-          ".vscode",
-          "python",
-          "pytools"
-        ]
-      },
-      "electronWinstallerConfig": {
-        "iconUrl": "https://raw.githubusercontent.com/VideoClient/video-client/master/app/icon/icon.ico"
-      },
-      "electronInstallerDebian": {
-        "icon": "app/icon/icon.png",
-        "categories": [
-          "Video"
-        ]
-      },
-      "electronInstallerRedhat": {
-        "icon": "app/icon/icon.png",
-        "categories": [
-          "Video"
-        ]
-      },
-      "electronInstallerDMG": {
-        "icon": "app/icon/icon.ico",
-        "icon-size": 64
-      },
-      "github_repository": {
-        "owner": "VideoClient",
-        "name": "video-client"
-      },
-      "windowsStoreConfig": {
-        "packageName": ""
-      }
-    }
+    "forge": "./forge.config.js"
   }
 }
