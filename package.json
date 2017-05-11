@@ -99,7 +99,9 @@
           "scripts",
           "test",
           ".nyc_output",
-          ".vscode"
+          ".vscode",
+          "python",
+          "pytools"
         ]
       },
       "electronWinstallerConfig": {
