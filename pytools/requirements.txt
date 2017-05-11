@@ -1,0 +1,4 @@
+zerorpc
+you-get
+youtube_dl
+pyinstaller
