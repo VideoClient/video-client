@@ -4,3 +4,6 @@
 [submodule "packages/vc-baiduyun-plugin"]
 	path = packages/vc-baiduyun-plugin
 	url = https://github.com/VideoClient/vc-baiduyun-plugin.git
+[submodule "packages/vc-bilibili-plugin"]
+	path = packages/vc-bilibili-plugin
+	url = https://github.com/VideoClient/vc-bilibili-plugin.git

@@ -7,3 +7,9 @@ built/
 out/
 coverage/
 .nyc_output/
+python/
+*.pyc
+build/
+__pycache__/
+pydist/
+*.spec

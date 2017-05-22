@@ -2,7 +2,7 @@ import 'mocha'
 import * as chai from 'chai'
 const chaiAsPromised = require('chai-as-promised');
 import path = require('path');
-import {YouGet} from '../../app/ts/Tools/you-get';
+import {YouGet} from '../../ts/Tools/you-get';
 
 chai.should();
 chai.use(chaiAsPromised);
