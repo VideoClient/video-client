@@ -1,10 +1,9 @@
-import React = require('react')
-import {Tabs, Tab, AppBar, Card, CardHeader, CardText} from 'material-ui'
+import * as React from 'react'
+import {Tabs, Tab, AppBar, Card, CardHeader} from '@mui/material'
 import {Categories, DiscoveryPage} from '.'
 const {Box, VBox, Page, Container} = require('react-layout-components')
 import { default as Video, Controls, Play, Mute, Seek, Fullscreen, Time, Overlay } from 'react-html5video';
 import {YouGet} from '../Tools/you-get'
-import path = require('path')
 
 export interface PlayerPageState {
     title: string

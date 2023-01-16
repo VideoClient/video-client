@@ -1,5 +1,5 @@
-import React = require('react')
-import {Tabs, Tab, AppBar, Card, CardHeader, CardText} from 'material-ui'
+import * as React from 'react'
+import {Tabs, Tab, AppBar, Card, CardHeader, CardContent} from '@mui/material'
 import {Categories, DiscoveryPage} from '.'
 const {Box, VBox, Page, ScrollView, Container} = require('react-layout-components')
 import {ISearchAdapter} from '../Model/res-adapter'
@@ -47,11 +47,11 @@ export class SearchPage extends React.Component<any, any> {
             <div className='content-card'>
                 <Card>
                     <CardHeader title="搜索结果"/>
-                    <CardText>
+                    <CardContent>
                         <Box wrap>
                             {shows}
                         </Box>
-                    </CardText>
+                    </CardContent>
                 </Card> 
             </div>
         </ScrollView>

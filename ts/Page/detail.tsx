@@ -1,6 +1,5 @@
-import React = require('react')
-import {FlatButton, Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui'
-const {Box, VBox, Page, Container, ScrollView} = require('react-layout-components')
+import * as React from 'react'
+import {Button, Card, CardActions, CardHeader, CardMedia, CardContent} from '@mui/material'
 import {VideoCollection} from '../Model/resource'
 import {App} from '../Model'
 
@@ -43,9 +42,6 @@ export class DetailPage extends React.Component<IDetailPageProps, IDetailPageSta
                         title={this.state.title}
                         actAsExpander={true}
                         showExpandableButton={true}/>
-                    <CardText>
-                        
-                    </CardText>
                 </Card> 
             </div> 
         </div>

@@ -1,7 +1,7 @@
 import {Video, VideoCollection} from './resource';
 import {App} from './app';
-import NeDB = require('nedb')
-import path = require('path')
+import * as NeDB from 'nedb';
+import * as path from 'path';
 
 export class Cache {
     constructor() {

@@ -1,7 +1,7 @@
-const remote = require('electron').remote;
-const app = remote.app;
-import NeDB = require('nedb')
-import path = require('path')
+import {app} from '@electron/remote'
+
+import * as NeDB from 'nedb';
+import * as path from 'path';
 
 export class Config {
     constructor() {

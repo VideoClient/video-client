@@ -1,7 +1,6 @@
-import React = require('react')
-import {Tabs, Tab, AppBar} from 'material-ui'
+import * as React from 'react'
+import {Tabs, Tab, AppBar} from '@mui/material'
 const {Box, VBox, Page, Container} = require('react-layout-components')
-import SwipeableViews from 'react-swipeable-views'
 import {App, HomePageTabs} from '../Model'
 
 export interface IHomePageProps {
@@ -47,9 +46,9 @@ export class HomePage extends React.Component<IHomePageProps, IHomePageStates> {
         return 0
     }
 
-    handleChange(value, e, tab) {
-        this.setState({slideIndex: value, slideName: tab.props['data-route']})
-        this.props.router.push("/home/"+tab.props['data-route'])
+    handleChange(e :React.SyntheticEvent, value) {
+        // this.setState({slideIndex: value, slideName: e.currentTarget.props['data-route']})
+        // this.props.router.push("/home/"+tab.props['data-route'])
     }
 
     static tabs = [
@@ -74,16 +73,17 @@ export class HomePage extends React.Component<IHomePageProps, IHomePageStates> {
     }
 
     render() {
+        //
         return <Container style={{width: '100%'}}><VBox style={{width: '100%', height: '100%'}}>
             <Box flex='none'>
-                <Tabs ref='tabs' style={{width: '100%'}} onChange={this.handleChange} value={this.state.slideIndex}>
+                <Tabs style={{width: '100%'}} onChange={this.handleChange} value={this.state.slideIndex}>
                     {this.tabsRenderer()}
                 </Tabs>
             </Box>
             <Box flex='1' fit style={{height: '100%'}}>
-                <SwipeableViews style={{height: '100%', width: '100%'}} index={this.state.slideIndex} onChangeIndex={this.handleChange} >
+                {/* <SwipeableViews style={{height: '100%', width: '100%'}} index={this.state.slideIndex} onChangeIndex={this.handleChange} >
                     {this.state.tabs.getAllComs()}
-                </SwipeableViews>
+                </SwipeableViews> */}
             </Box>
         </VBox></Container>
     }

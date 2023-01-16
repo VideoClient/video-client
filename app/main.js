@@ -58,8 +58,11 @@ function openMainWindow(vv = null) {
     })
     
 
-    mainWindow = new BrowserWindow({ width: 1366, height: 768, icon: __dirname + '/icon/icon.png' });
-    mainWindow.maximize(); 
+    mainWindow = new BrowserWindow({ 
+        width: 1366, height: 768, icon: __dirname + '/icon/icon.png', 
+        webPreferences: { nodeIntegration: true, contextIsolation: false, enableRemoteModule: true }
+    });
+    // mainWindow.maximize(); 
     if (vv == null)
         mainWindow.loadURL('file://' + __dirname + '/index.html#/');
     else

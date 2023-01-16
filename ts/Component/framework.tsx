@@ -1,8 +1,8 @@
 import * as React from 'react'
 import {LeftMenu} from './left-menu'
 import {User} from './user'
-import {AppBar, Drawer, MenuItem, TextField, IconButton, Dialog, FlatButton} from 'material-ui'
-import {ActionSearch, NavigationArrowBack, NavigationMenu} from 'material-ui/svg-icons'
+import {AppBar, Drawer, DialogActions, TextField, IconButton, Dialog, Button} from '@mui/material'
+import {Search, ArrowBack, Menu} from '@mui/icons-material'
 import {App} from '../Model/app'
 const {Box, VBox, Page, Container} = require("react-layout-components")
 
@@ -44,16 +44,16 @@ export class Framework extends React.Component<any, any> {
             this.setState({icon: this.menu_icon})
     }
 
-    arrow_icon= <IconButton><NavigationArrowBack /></IconButton>
-    menu_icon= <IconButton><NavigationMenu /></IconButton>
+    arrow_icon= <IconButton><ArrowBack /></IconButton>
+    menu_icon= <IconButton><Menu /></IconButton>
     static hide_appbar = {height: 0};
     static drawer_width = 300;
 
     private search_box = <Box alignItems='center'>
-        <ActionSearch color='#fff'/>
+        <Search color='primary'/>
         <TextField  onKeyDown={this.onSearch.bind(this)} 
                     onFocus={ this.onSearchBarFocus }
-                    hintText='Search...'/>
+                    label='Search...'/>
     </Box>
 
     // 弹出对话框, 要求用户输入url
@@ -64,30 +64,26 @@ export class Framework extends React.Component<any, any> {
     // url 输入结束
     handleClose = () => {
         this.setState({dialog_open: false});
-        let text = this.refs['url-input'] as TextField
-        if (text.getValue() != '') {
-            App.goto('/watch/'+encodeURIComponent(text.getValue()))
-        }
+        // let text = this.refs['url-input'] as TextField
+        // if (text.getValue() != '') {
+        //     App.goto('/watch/'+encodeURIComponent(text.getValue()))
+        // }
     };
 
     render() {
         const actions = [
-        <FlatButton
-            label="播放"
-            primary={true}
-            keyboardFocused={true}
-            onTouchTap={this.handleClose}
-        />,
+            <Button variant="contained" color="primary" onClick={this.handleClose}>播放</Button>,
         ];
+        // width={Framework.drawer_width} containerStyle={{overflow:'visible'}}
         return <Page>
-            <Drawer open={this.state.open} width={Framework.drawer_width} containerStyle={{overflow:'visible'}}>
-                <User open_dialog={this.handleOpen} />
+            <Drawer open={this.state.open} >
+                <User open_dialog={this.handleOpen} /> 
                 <LeftMenu open={this.state.open} width={Framework.drawer_width} onBack={this.onMenuBackClick.bind(this)}/>
             </Drawer>
             <Container fit>
                 <VBox fit>
                     <Box flex='none' style={this.state.hidebar ? Framework.hide_appbar : null}>
-                        <AppBar title='主页' iconElementLeft={this.state.icon} onLeftIconButtonTouchTap={this.onMenuBtnClick.bind(this)} iconElementRight={this.search_box} />
+                        {/* <AppBar title='主页' iconElementLeft={this.state.icon} onLeftIconButtonTouchTap={this.onMenuBtnClick.bind(this)} iconElementRight={this.search_box} /> */}
                     </Box>
                     <Box flex='1' style={{width: '100%',height: '100%'}}>
                         {this.props.children}
@@ -96,12 +92,13 @@ export class Framework extends React.Component<any, any> {
             </Container>
             <Dialog
                 title="您可以直接将网页上观看的视频网址粘贴在此"
-                actions={actions}
-                modal={false}
                 open={this.state.dialog_open}
-                onRequestClose={()=> this.setState({dialog_open: false})}>
+                onClose={()=> this.setState({dialog_open: false})}>
                 
-                <TextField ref='url-input' fullWidth floatingLabelText="请输入播放页面的URL" />
+                <TextField fullWidth label="请输入播放页面的URL" />
+                <DialogActions>
+                <Button variant="contained" color="primary" onClick={this.handleClose}>播放</Button>
+                </DialogActions>
             </Dialog>
         </Page>
     }

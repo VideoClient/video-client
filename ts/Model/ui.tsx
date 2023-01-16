@@ -1,4 +1,4 @@
-import React = require('react')
+import * as React from 'react'
 import {Categories, SubCategories, DiscoveryPage} from '../Page'
 
 export interface HomeTab {

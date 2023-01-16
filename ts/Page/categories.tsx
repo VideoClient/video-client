@@ -1,7 +1,7 @@
-import React = require('react')
-import {FlatButton, Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui'
+import * as React from 'react'
+import {Button, Card, CardActions, CardHeader, CardMedia, CardContent} from '@mui/material'
 const {Box, VBox, Page, Container, ScrollView} = require('react-layout-components')
-import {Link} from 'react-router'
+import {Link} from 'react-router-dom'
 
 export class Category extends React.Component<any, any> {
     // 传入一个名字作为参数
@@ -51,9 +51,9 @@ export class Categories extends React.Component<any, any> {
                 <div key={"other"+(i++)} className='content-card'>
                     <Card>
                         <CardHeader title={key+"精选"}/>
-                        <CardText >
+                        <CardContent >
                             
-                        </CardText>
+                        </CardContent>
                     </Card> 
                 </div>
             )
@@ -66,16 +66,16 @@ export class Categories extends React.Component<any, any> {
                         title="视频分类大全"
                         actAsExpander={true}
                         showExpandableButton={true}/>
-                    <CardText>
+                    <CardContent>
                         <Container wrap>
                             {main_cates}
                         </Container>
-                    </CardText>
-                    <CardText expandable={true}>
+                    </CardContent>
+                    <CardContent>
                         <Container>
                             {extend_cates}
                         </Container>
-                    </CardText>
+                    </CardContent>
                 </Card> 
             </div>
 
@@ -105,9 +105,9 @@ export class SubCategories extends React.Component<any, any> {
             others.push(<div key={"other"+i} className='content-card'>
                 <Card>
                     <CardHeader title="电影精选"/>
-                    <CardText>
+                    <CardContent>
                         
-                    </CardText>
+                    </CardContent>
                 </Card> 
             </div>)
         }
@@ -119,16 +119,16 @@ export class SubCategories extends React.Component<any, any> {
                         title="子类别"
                         actAsExpander={true}
                         showExpandableButton={true}/>
-                    <CardText>
+                    <CardContent>
                         <Container wrap>
                             {main_cates}
                         </Container>
-                    </CardText>
-                    <CardText expandable={true}>
+                    </CardContent>
+                    <CardContent>
                         <Container>
                             {extend_cates}
                         </Container>
-                    </CardText>
+                    </CardContent>
                 </Card> 
             </div>
 
